@@ -9,6 +9,12 @@ OpenConnection::usage=
 OpenConnection[host, port] opens a connection to the specified host and port.
 The database server must already be running; this function will not start the server.";
 
+DatabaseNames::usage=
+"DatabaseNames[connection] lists database names.";
+
+CloseConnection::usage=
+"CloseConnection[connection] closes the connection.";
+
 GetDatabase::usage=
 "GetDatabase[connection, database] returns the database object.";
 
@@ -16,7 +22,14 @@ CollectionNames::usage=
 "CollectionNames[database] returns a list of collection names.";
 
 GetCollection::usage=
-"GetCollection[database, collection] gets or creates the specified collection.";
+"GetCollection[database, collectionName] gets or creates the specified collection by name.";
+
+DropCollection::usage=
+"DropCollection[collection] drops a collection.";
+
+DropDatabase::usage=
+"DropDatabase[connection, databaseName] drops a database by name.
+DropDatabase[database] drops a database.";
 
 (* InputForm formatted *)
 Collection::usage="Collection[] is an object that represents a MongoDB collection. Some Dataset \!\(\*ButtonBox[\"Query \",
@@ -77,12 +90,6 @@ UpdateDocument::usage=
 DeleteDocument::usage=
 "DeleteDocument[collection, query] deletes document(s) matching the query."
 
-DropCollection::usage=
-"DropCollection[collection] drops a collection.";
-
-DropDatabase::usage=
-"DropDatabase[connection, database] drops a database by name.";
-
 ObjectId::usage=
 "ObjectId[] creates a new random ObjectId.
 ObjectId[hexstring] creates an ObjectId with the specified hex string.
@@ -91,8 +98,6 @@ When performing queries, _id fields are automatically converted to ObjectId. Use
 DatabaseConnection
 Database
 Collection
-
-mongo::tostr = "Warning: calling toString on `1`, which has no specific converter.";
 
 Begin["`Private`"]
 
@@ -111,6 +116,19 @@ DatabaseConnection /:
 
 DatabaseConnection /: DatabaseConnection[host_String, port_Integer, connection_]["connection"] := connection
 
+OpenConnection[] := OpenConnection["localhost", 27017]
+
+OpenConnection[host_String, port_Integer] := Block[{},
+  InstallJava[];
+  LoadClass["com.mongodb.WriteConcern"];
+  DatabaseConnection[host, port, JavaNew["com.mongodb.MongoClient", host, port]]
+]
+
+CloseConnection[connection_DatabaseConnection] :=
+  JavaBlock[connection["connection"]@close[]; connection]
+
+DatabaseNames[conn_DatabaseConnection] :=
+  JavaBlock[conn["connection"]@getDatabaseNames[]@toArray[]]
 
 Database /:
   Format[Database[name_String, db_]] :=
@@ -121,6 +139,32 @@ Database /:
   ]
 
 Database /: Database[name_String, db_]["db"] := db
+
+GetDatabase[connection_DatabaseConnection, database_String] := 
+  Database[database, connection["connection"]@getDB[database]];
+
+DropDatabase[connection_DatabaseConnection, database_String] :=
+  (connection["connection"]@dropDatabase[database]; database)
+
+DropDatabase[database_Database] :=
+  With[
+    {name = database["db"]@getName[]},
+    database["db"]@dropDatabase[];
+    name
+  ]
+
+CollectionNames[database_Database] :=
+  database["db"]@getCollectionNames[]@toArray[]
+
+GetCollection[database_Database, collection_String] :=
+  Collection[collection, database["db"]@getCollection[collection]];
+
+DropCollection[collection_Collection] :=
+  With[
+    {name=collection["collection"]@getName[]},
+    collection["collection"]@drop[];
+    name
+  ]
 
 
 Collection /: 
@@ -134,6 +178,9 @@ Collection /:
 Collection /: Collection[name_String, collection_]["collection"] := collection
 
 (* Dataset-like Query support *)
+Collection /: Collection[name_String, collection_][offset_Integer ;; All] :=
+  FindDocuments[Collection[name, collection], "Offset" -> offset - 1]
+
 Collection /: Collection[name_String, collection_][offset_Integer ;; end_Integer] /; (end - offset + 1 > 0) :=
   FindDocuments[Collection[name, collection], "Offset" -> offset - 1, "Limit" -> (end - offset + 1)]
 
@@ -143,6 +190,9 @@ Collection /: Collection[name_String, collection_][offset_Integer ;; end_Integer
 Collection /: Collection[name_String, collection_][index_Integer] :=
   FindDocuments[Collection[name, collection], "Offset" -> index - 1, "Limit" -> 1]
 
+
+Collection /: Collection[name_String, collection_][offset_Integer ;; All, fields_List] :=
+  FindDocuments[Collection[name, collection], "Offset" -> offset - 1, "Fields" -> fields]
 
 Collection /: Collection[name_String, collection_][offset_Integer ;; end_Integer, fields_List] /; (end - offset + 1 > 0) :=
   FindDocuments[Collection[name, collection], "Offset" -> offset - 1, "Limit" -> (end - offset + 1), "Fields" -> fields]
@@ -181,32 +231,6 @@ Collection /: Collection[name_String, collection_][Dataset, opts:_Rule...] :=
 Collection /: Collection[name_String, collection_][query__] := (If[$debug, Print["Warning: Dataset op"]];
   Dataset[Association /@ FindDocuments[Collection[name, collection]]][query])
 
-
-OpenConnection[] := OpenConnection["localhost", 27017]
-
-OpenConnection[host_String, port_Integer] := Block[{},
-  InstallJava[];
-  LoadClass["com.mongodb.WriteConcern"];
-  DatabaseConnection[host, port, JavaNew["com.mongodb.MongoClient", host, port]]
-]
-
-
-
-GetDatabase[connection_DatabaseConnection, database_String] := 
-  Database[database, connection["connection"]@getDB[database]];
-
-DropDatabase[connection_DatabaseConnection, database_String] :=
-  connection["connection"]@dropDatabase[database];
-
-
-
-CollectionNames[database_Database] :=
-  database["db"]@getCollectionNames[]@toArray[]
-
-GetCollection[database_Database, collection_String] :=
-  Collection[collection, database["db"]@getCollection[collection]];
-
-DropCollection[collection_Collection] := collection["collection"]@drop[]
 
 (* https://api.mongodb.org/java/3.0/ *)
 writeConcernStringToEnum["Acknowledged"] = WriteConcern`ACKNOWLEDGED (* syn: SAFE *)

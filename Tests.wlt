@@ -62,11 +62,20 @@ EndTestSection[]
 BeginTestSection["Insert, Find"]
 
 VerificationTest[
-	Map[Function[InsertDocument[collection1, List[Rule["a", Slot[1]], Rule["b", Times[Slot[1], 2]]]]], Range[5]]
+	InsertDocument[collection1, {"a" -> #, "b" -> 2 * #}] & /@ Range[5]
 	,
 	List[0, 0, 0, 0, 0]
 	,
 	TestID->"55bb46b4-f1b9-489b-bb31-24fd780bc570"
+]
+
+(* Mongo lazily creates stuff, so this has to come after an insert. *)
+VerificationTest[
+	ArrayQ[DatabaseNames[connection]] && MemberQ[DatabaseNames[connection], "test"]
+	,
+	True
+	,
+	TestID->"1115abd1-c623-4321-9931-d942f925a01a"
 ]
 
 VerificationTest[
@@ -86,7 +95,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-	MatchQ[FindDocuments[collection1], List[List[Rule["_id", Blank[]], Rule["a", 1], Rule["b", 2]], List[Rule["_id", Blank[]], Rule["a", 2], Rule["b", 4]], List[Rule["_id", Blank[]], Rule["a", 3], Rule["b", 6]], List[Rule["_id", Blank[]], Rule["a", 4], Rule["b", 8]], List[Rule["_id", Blank[]], Rule["a", 5], Rule["b", 10]]]]
+	MatchQ[FindDocuments[collection1], {{"_id" -> _, "a" -> 1, "b" -> 2}, {"_id" -> _, "a" -> 2, "b" -> 4}, {"_id" -> _, "a" -> 3, "b" -> 6}, {"_id" -> _, "a" -> 4, "b" -> 8}, {"_id" -> _, "a" -> 5, "b" -> 10}}]
 	,
 	True
 	,
@@ -94,7 +103,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-	MatchQ[FindDocuments[collection1, Rule["Fields", List["b"]]], List[List[Rule["_id", Blank[]], Rule["b", 2]], List[Rule["_id", Blank[]], Rule["b", 4]], List[Rule["_id", Blank[]], Rule["b", 6]], List[Rule["_id", Blank[]], Rule["b", 8]], List[Rule["_id", Blank[]], Rule["b", 10]]]]
+	MatchQ[FindDocuments[collection1, "Fields" -> {"b"}], {{"_id" -> _, "b" -> 2}, {"_id" -> _, "b" -> 4}, {"_id" -> _, "b" -> 6}, {"_id" -> _, "b" -> 8}, {"_id" -> _, "b" -> 10}}]
 	,
 	True
 	,
@@ -102,7 +111,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-	MatchQ[FindDocuments[collection1, Rule["Limit", 2]], List[List[Rule["_id", Blank[]], Rule["a", 1], Rule["b", 2]], List[Rule["_id", Blank[]], Rule["a", 2], Rule["b", 4]]]]
+	MatchQ[FindDocuments[collection1, "Limit" -> 2], {{"_id" -> _, "a" -> 1, "b" -> 2}, {"_id" -> _, "a" -> 2, "b" -> 4}}]
 	,
 	True
 	,
@@ -110,7 +119,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-	MatchQ[FindDocuments[collection1, Rule["Offset", 1], Rule["Limit", 1]], List[List[Rule["_id", Blank[]], Rule["a", 2], Rule["b", 4]]]]
+	MatchQ[FindDocuments[collection1, "Offset" -> 1, "Limit" -> 1], {{"_id" -> _, "a" -> 2, "b" -> 4}}]
 	,
 	True
 	,
@@ -150,7 +159,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-	CountDocuments[collection1, List[Rule["a", List[Rule["$gt", 2]]]]]
+	CountDocuments[collection1, {"a" -> {"$gt" -> 2}}]
 	,
 	3
 	,
@@ -176,7 +185,7 @@ EndTestSection[]
 BeginTestSection["Collection Query operators"]
 
 VerificationTest[
-	MatchQ[collection1[1], List[List[Rule["_id", Blank[]], Rule["a", 1], Rule["b", 2]]]]
+	MatchQ[collection1[1], {{"_id" -> _, "a" -> 1, "b" -> 2}}]
 	,
 	True
 	,
@@ -184,7 +193,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-	MatchQ[collection1[Span[1, 3]], List[List[Rule["_id", Blank[]], Rule["a", 1], Rule["b", 2]], List[Rule["_id", Blank[]], Rule["a", 2], Rule["b", 4]], List[Rule["_id", Blank[]], Rule["a", 3], Rule["b", 6]]]]
+	MatchQ[collection1[1 ;; 3], {{"_id" -> _, "a" -> 1, "b" -> 2}, {"_id" -> _, "a" -> 2, "b" -> 4}, {"_id" -> _, "a" -> 3, "b" -> 6}}]
 	,
 	True
 	,
@@ -192,15 +201,15 @@ VerificationTest[
 ]
 
 VerificationTest[
-	MatchQ[collection1[Span[1, 3]], List[List[Rule["_id", Blank[]], Rule["a", 1], Rule["b", 2]], List[Rule["_id", Blank[]], Rule["a", 2], Rule["b", 4]], List[Rule["_id", Blank[]], Rule["a", 3], Rule["b", 6]]]]
+	MatchQ[collection1[ ;; 3], {{"_id" -> _, "a" -> 1, "b" -> 2}, {"_id" -> _, "a" -> 2, "b" -> 4}, {"_id" -> _, "a" -> 3, "b" -> 6}}]
 	,
 	True
 	,
 	TestID->"605477cd-f573-4965-b736-44dcc3f00df2"
 ]
 
-VerificationTest[(* FAILURE *)
-	MatchQ[collection1[Span[3, All]], List[List[Rule["_id", Blank[]], Rule["a", 3], Rule["b", 6]], List[Rule["_id", Blank[]], Rule["a", 4], Rule["b", 8]], List[Rule["_id", Blank[]], Rule["a", 5], Rule["b", 10]]]]
+VerificationTest[
+	MatchQ[collection1[3 ;; ], {{"_id" -> _, "a" -> 3, "b" -> 6}, {"_id" -> _, "a" -> 4, "b" -> 8}, {"_id" -> _, "a" -> 5, "b" -> 10}}]
 	,
 	True
 	,
@@ -208,7 +217,7 @@ VerificationTest[(* FAILURE *)
 ]
 
 VerificationTest[
-	MatchQ[collection1[1, "a"], List[List[Rule["_id", Blank[]], Rule["a", 1]]]]
+	MatchQ[collection1[1, "a"], {{"_id" -> _, "a" -> 1}}]
 	,
 	True
 	,
@@ -216,7 +225,7 @@ VerificationTest[
 ]
 
 VerificationTest[
-	MatchQ[collection1[1, List["a"]], List[List[Rule["_id", Blank[]], Rule["a", 1]]]]
+	MatchQ[collection1[1, List["a"]], {{"_id" -> _, "a" -> 1}}]
 	,
 	True
 	,
@@ -239,7 +248,7 @@ VerificationTest[
 	TestID->"5caf1185-ef9d-430c-b696-eb3db2dce273"
 ]
 
-VerificationTest[(* FAILURE *)
+VerificationTest[
 	MatchQ[collection1[Span[3, All], List["a"]], List[List[Rule["_id", Blank[]], Rule["a", 3]], List[Rule["_id", Blank[]], Rule["a", 4]], List[Rule["_id", Blank[]], Rule["a", 5]]]]
 	,
 	True
@@ -358,6 +367,43 @@ VerificationTest[
 
 EndTestSection[]
 
-DropCollection[collection1];
+VerificationTest[
+	{DropCollection[collection1], FreeQ[CollectionNames[database], "test1"]}
+	,
+	{"test1", True}
+	,
+	TestID->"fceef6f3-34e4-4eb7-8426-d5f3ab02d3d6"
+]
+
+VerificationTest[
+	{DropDatabase[database], FreeQ[DatabaseNames[connection], "test"]}
+	,
+	{"test", True}
+	,
+	TestID->"ee57bebd-faaa-4b50-85c9-355b8f2df206"
+]
+
+VerificationTest[
+	Block[{db, coll},
+		db = GetDatabase[connection, "test2"];
+		coll = GetCollection[db, "test2"];
+		InsertDocument[coll, {"a" -> 1}];
+		{DropDatabase[connection, "test2"], FreeQ[DatabaseNames[connection], "test2"]}
+	]
+	,
+	{"test2", True}
+	,
+	TestID->"79b22220-a186-445f-a468-0e50962450f9"
+]
+
+VerificationTest[
+	CloseConnection[connection]
+	,
+	connection
+	,
+	TestID->"54141c89-9157-4911-b37a-5e95d34f7d28"
+]
+
+Clear[connection, database, collection1];
 
 EndTestSection[]
