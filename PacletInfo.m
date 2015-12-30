@@ -1,0 +1,17 @@
+(* Paclet Info File *)
+
+(* created 2015/12/29 *)
+
+Paclet[
+  Name -> "MongoDBLink",
+  Version -> "0.1.0",
+  MathematicaVersion -> "6+",
+  Extensions -> 
+    {
+      {
+        "Documentation",
+        Resources -> {"Guides/SQLDatabaseOperations"},
+        Language -> "English"
+      }
+    }
+]
