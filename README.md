@@ -7,9 +7,12 @@ A fast client for MongoDB, built on the official MongoDB java driver.
 
 This will install the package in the `$UserAddOnsDirectory`. You may prefer `$AddOnsDirectory` instead.
 
-    tmp = URLSave["https://github.com/zbjornson/mathematica-mongodb/archive/master.zip"];
-    ExpandArchive[tmp, FileNameJoin[{$UserAddOnsDirectory, "Applications", "MongoDBLink"]];
+    tmp = URLSave["https://github.com/zbjornson/MongoDBLink/archive/master.zip"];
+    dest = FileNameJoin[{$AddOnsDirectory, "Applications"}];
+    ExtractArchive[tmp, dest];
+    RenameDirectory[FileNameJoin[{dest, "MongoDBLink-master"}], FileNameJoin[{dest, "MongoDBLink"}]];
     DeleteFile[tmp];
+    Print["Installed MongoDBLink to " <> dest]
 
 ## Usage
 
