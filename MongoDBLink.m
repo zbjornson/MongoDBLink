@@ -18,6 +18,10 @@ CloseConnection::usage=
 GetDatabase::usage=
 "GetDatabase[connection, database] returns the database object.";
 
+DropDatabase::usage=
+"DropDatabase[connection, databaseName] drops a database by name.
+DropDatabase[database] drops a database.";
+
 CollectionNames::usage=
 "CollectionNames[database] returns a list of collection names.";
 
@@ -26,10 +30,6 @@ GetCollection::usage=
 
 DropCollection::usage=
 "DropCollection[collection] drops a collection.";
-
-DropDatabase::usage=
-"DropDatabase[connection, databaseName] drops a database by name.
-DropDatabase[database] drops a database.";
 
 (* InputForm formatted *)
 Collection::usage="Collection[] is an object that represents a MongoDB collection. Some Dataset \!\(\*ButtonBox[\"Query \",

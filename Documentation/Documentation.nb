@@ -1,0 +1,608 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     19221,        599]
+NotebookOptionsPosition[     16025,        481]
+NotebookOutlinePosition[     16525,        502]
+CellTagsIndexPosition[     16440,        497]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["MongoDBLink", "Title",
+ CellChangeTimes->{{3.660531790331534*^9, 3.6605317957088413`*^9}}],
+
+Cell["\<\
+This package provides connectivity to the MongoDB NoSQL database. It is built \
+on the official MongoDB java driver.\
+\>", "Text",
+ CellChangeTimes->{{3.660531967256654*^9, 3.66053199500224*^9}}],
+
+Cell[TextData[{
+ "This documentation assumes some familiarity with MongoDB and is not meant \
+to explain the concept of NoSQL interactions. For more information, ",
+ "see the ",
+ ButtonBox["MongoDB documentation",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://docs.mongodb.org/v3.0/core/introduction/"], None},
+  ButtonNote->"https://docs.mongodb.org/v3.0/core/introduction/"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.6605319985684443`*^9, 3.6605320198966646`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"<<", "MongoDBLink`"}]], "Input",
+ CellChangeTimes->{{3.660532141882642*^9, 3.6605321435397367`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["DatabaseConnection", "Section",
+ CellChangeTimes->{{3.6605319439853225`*^9, 3.660531945091386*^9}, {
+  3.660532098789177*^9, 3.660532099860238*^9}}],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"DatabaseConnection", "[", 
+       RowBox[{"\"\<\!\(\*
+StyleBox[\"host\", \"TI\"]\)\>\"", ",", 
+        StyleBox["port",
+         FontSlant->"Italic"]}], "]"}]], "InlineFormula"],
+     "\[LineSeparator]is an object that represents a MongoDB database \
+connection."
+    }]]}
+  }]], "Usage",
+ Editable->True,
+ CellChangeTimes->{{3.660532183025995*^9, 3.6605321894373617`*^9}},
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->822],
+
+Cell[CellGroupData[{
+
+Cell["Details and Options", "Subsubsection",
+ CellChangeTimes->{{3.6605323057030115`*^9, 3.660532315872593*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["OpenConnection returns a DatabaseConnection object.", "Item",
+ CellChangeTimes->{{3.6605323358087335`*^9, 3.6605323421880984`*^9}}],
+
+Cell["\<\
+Advanced users may access the java database connection object via \
+databaseConnection[\[OpenCurlyDoubleQuote]connection\[CloseCurlyDoubleQuote]].\
+\>", "Item",
+ CellChangeTimes->{{3.6605323358087335`*^9, 3.6605323546898136`*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "Subsubsection",
+ CellChangeTimes->{{3.6605324561236153`*^9, 3.6605324570776696`*^9}}],
+
+Cell["Open a connection:", "Text",
+ CellChangeTimes->{{3.660532475722736*^9, 3.660532477503838*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"connection", "=", 
+  RowBox[{"OpenConnection", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.660532458584756*^9, 3.6605324624649777`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"DatabaseConnection", "[", 
+  PanelBox[
+   TagBox[GridBox[{
+      {
+       TemplateBox[{StyleBox["\"Host: \"", 
+          GrayLevel[0.5], StripOnInput -> False],"\"localhost:27017\""},
+        "RowDefault"]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Column"],
+   FrameMargins->5], "]"}]], "Output",
+ CellChangeTimes->{3.6605324685103235`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Database", "Section",
+ CellChangeTimes->{{3.6605319439853225`*^9, 3.660531945091386*^9}, {
+   3.660532098789177*^9, 3.660532099860238*^9}, 3.6605325078975763`*^9}],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{"Database", "[", "\"\<\!\(\*
+StyleBox[\"name\", \"TI\"]\)\>\"", "]"}]], "InlineFormula"],
+     "\[LineSeparator]is an object that represents a MongoDB database."
+    }]]}
+  }]], "Usage",
+ Editable->True,
+ CellChangeTimes->{{3.660532183025995*^9, 3.6605321894373617`*^9}, {
+  3.6605325145259557`*^9, 3.6605325349841256`*^9}},
+ GridBoxOptions->{
+ GridBoxBackground->{
+  "Columns" -> {{None}}, "ColumnsIndexed" -> {}, "Rows" -> {{None}}, 
+   "RowsIndexed" -> {}}},
+ CellID->15527543],
+
+Cell[CellGroupData[{
+
+Cell["Details and Options", "Subsubsection",
+ CellChangeTimes->{{3.6605323057030115`*^9, 3.660532315872593*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["GetDatabase returns a Database object.", "Item",
+ CellChangeTimes->{{3.6605323358087335`*^9, 3.6605323421880984`*^9}, {
+  3.660532545110705*^9, 3.660532552036101*^9}}],
+
+Cell["\<\
+Advanced users may access the java database object via database[\
+\[OpenCurlyDoubleQuote]db\[CloseCurlyDoubleQuote]].\
+\>", "Item",
+ CellChangeTimes->{{3.6605323358087335`*^9, 3.6605323546898136`*^9}, {
+  3.6605325576424217`*^9, 3.660532571443211*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "Subsubsection",
+ CellChangeTimes->{{3.6605324561236153`*^9, 3.6605324570776696`*^9}}],
+
+Cell["Get a database:", "Text",
+ CellChangeTimes->{{3.660532475722736*^9, 3.660532477503838*^9}, {
+  3.660532589526245*^9, 3.660532594053504*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"connection", "=", 
+  RowBox[{"OpenConnection", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.660532458584756*^9, 3.6605324624649777`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"DatabaseConnection", "[", 
+  PanelBox[
+   TagBox[GridBox[{
+      {
+       TemplateBox[{StyleBox["\"Host: \"", 
+          GrayLevel[0.5], StripOnInput -> False],"\"localhost:27017\""},
+        "RowDefault"]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Column"],
+   FrameMargins->5], "]"}]], "Output",
+ CellChangeTimes->{3.6605324685103235`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"db", "=", 
+  RowBox[{"GetDatabase", "[", 
+   RowBox[{"connection", ",", "\"\<test1\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.660532603657054*^9, 3.6605326104654427`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Database", "[", 
+  PanelBox[
+   TagBox[GridBox[{
+      {
+       TemplateBox[{StyleBox["\"Name: \"", 
+          GrayLevel[0.5], StripOnInput -> False],"\"test1\""},
+        "RowDefault"]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Column"],
+   FrameMargins->5], "]"}]], "Output",
+ CellChangeTimes->{3.6605326108894672`*^9}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Collection", "Section",
+ CellChangeTimes->{{3.6605319439853225`*^9, 3.660531945091386*^9}, {
+   3.660532098789177*^9, 3.660532099860238*^9}, 3.6605325078975763`*^9, {
+   3.6605326717099457`*^9, 3.660532672862012*^9}}],
+
+Cell[BoxData[
+ StyleBox["\<\"Collection[] is an object that represents a MongoDB \
+collection. Some Dataset \\!\\(\\*ButtonBox[\\\"Query \
+\\\",\\nBaseStyle->\\\"Hyperlink\\\",\\nButtonData->{\\\"Documentation/\
+English/System/ReferencePages/Symbols/Query.nb\\\", None}]\\) operators are \
+executed in the \
+database:\\n\\!\\(\\*\\nStyleBox[\\\"collection\\\",\\nFontSlant->\\\"Italic\\\
+\"]\\)[\\!\\(\\*\\nStyleBox[\\\"m\\\",\\nFontSlant->\\\"Italic\\\"]\\);;\\!\\(\
+\\*\\nStyleBox[\\\"n\\\",\\nFontSlant->\\\"Italic\\\"]\\)], \
+\\!\\(\\*\\nStyleBox[\\\"collection\\\",\\nFontSlant->\\\"Italic\\\"]\\)[;;\\!\
+\\(\\*\\nStyleBox[\\\"n\\\",\\nFontSlant->\\\"Italic\\\"]\\)], \
+\\!\\(\\*\\nStyleBox[\\\"collection\\\",\\nFontSlant->\\\"Italic\\\"]\\)[m;;] \
+for taking a set of rows (1-indexed).\\n\\!\\(\\*\\nStyleBox[\\\"collection\\\
+\",\\nFontSlant->\\\"Italic\\\"]\\)[\\!\\(\\*\\nStyleBox[\\\"i\\\",\\\
+nFontSlant->\\\"Italic\\\"]\\)] for taking a specific row \
+(1-indexed).\\n\\!\\(\\*\\nStyleBox[\\\"collection\\\",\\nFontSlant->\\\"\
+Italic\\\"]\\)[\\!\\(\\*\\nStyleBox[\\\"m\\\",\\nFontSlant->\\\"Italic\\\"]\\)\
+;;\\!\\(\\*\\nStyleBox[\\\"n\\\",\\nFontSlant->\\\"Italic\\\"]\\), \
+{\\\"\\!\\(\\*\\nStyleBox[\\\"key\\\",\\nFontSlant->\\\"Italic\\\"]\\)\\\"}] \
+for taking the contents of a specific \
+column.\\n\\!\\(\\*\\nStyleBox[\\\"collection\\\",\\nFontSlant->\\\"Italic\\\"\
+]\\)[Total, \
+\\\"\\!\\(\\*\\nStyleBox[\\\"key\\\",\\nFontSlant->\\\"Italic\\\"]\\)\\\"] \
+for totaling the contents of a specified \
+column.\\n\\!\\(\\*\\nStyleBox[\\\"collection\\\",\\nFontSlant->\\\"Italic\\\"\
+]\\)[Mean, \\\"\\!\\(\\*\\nStyleBox[\\\"key\\\",\\nFontSlant->\\\"Italic\\\"]\
+\\)\\\"] for finding the mean of a specified \
+column.\\n\\!\\(\\*\\nStyleBox[\\\"collection\\\",\\nFontSlant->\\\"Italic\\\"\
+]\\)[Min, \
+\\\"\\!\\(\\*\\nStyleBox[\\\"key\\\",\\nFontSlant->\\\"Italic\\\"]\\)\\\"] \
+for finding the minimum of a specified \
+column.\\n\\!\\(\\*\\nStyleBox[\\\"collection\\\",\\nFontSlant->\\\"Italic\\\"\
+]\\)[Max, \
+\\\"\\!\\(\\*\\nStyleBox[\\\"key\\\",\\nFontSlant->\\\"Italic\\\"]\\)\\\"] \
+for finding the maximum of a specified \
+column.\\n\\!\\(\\*\\nStyleBox[\\\"collection\\\",\\nFontSlant->\\\"Italic\\\"\
+]\\)[Dataset] returns a Dataset form of the collection. Use options like \
+\\\"Fields\\\" -> {\\\"key1\\\"} to limit the data \
+returned.\\n\\!\\(\\*\\nStyleBox[\\\"collection\\\",\\nFontSlant->\\\"Italic\\\
+\"]\\)[\\!\\(\\*\\nStyleBox[SubscriptBox[\\\"operator\\\", \
+\\\"1\\\"],\\nFontSlant->\\\"Italic\\\"]\\), \
+\\!\\(\\*\\nStyleBox[SubscriptBox[\\\"operator\\\", \\\"2\\\"],\\nFontSlant->\
+\\\"Italic\\\"]\\), ...] fetch a dataset and then perform the query \
+operators; for large collections and repeated queries it is best to store the \
+Dataset first.\"\>", "MSG"]], "Print", "PrintUsage",
+ CellChangeTimes->{3.660532839297531*^9},
+ CellTags->"Info3660504039-5993952"],
+
+Cell[CellGroupData[{
+
+Cell["Details and Options", "Subsubsection",
+ CellChangeTimes->{{3.6605323057030115`*^9, 3.660532315872593*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["GetCollection returns a Collection object.", "Item",
+ CellChangeTimes->{{3.6605323358087335`*^9, 3.6605323421880984`*^9}, {
+  3.660532545110705*^9, 3.660532552036101*^9}, {3.660532681253492*^9, 
+  3.660532685340726*^9}}],
+
+Cell["\<\
+Advanced users may access the java collection object via collection[\
+\[OpenCurlyDoubleQuote]collection\[CloseCurlyDoubleQuote]].\
+\>", "Item",
+ CellChangeTimes->{{3.6605323358087335`*^9, 3.6605323546898136`*^9}, {
+  3.6605325576424217`*^9, 3.660532571443211*^9}, {3.6605326874998493`*^9, 
+  3.660532694488249*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples", "Subsubsection",
+ CellChangeTimes->{{3.6605324561236153`*^9, 3.6605324570776696`*^9}}],
+
+Cell[TextData[StyleBox["Basic usage",
+ FontWeight->"Bold"]], "Text",
+ CellChangeTimes->{{3.660532777399991*^9, 3.6605327784600515`*^9}}],
+
+Cell["Get a collection:", "Text",
+ CellChangeTimes->{{3.660532475722736*^9, 3.660532477503838*^9}, {
+  3.660532589526245*^9, 3.660532594053504*^9}, {3.6605326964693623`*^9, 
+  3.6605326976144276`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"connection", "=", 
+  RowBox[{"OpenConnection", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.660532458584756*^9, 3.6605324624649777`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"DatabaseConnection", "[", 
+  PanelBox[
+   TagBox[GridBox[{
+      {
+       TemplateBox[{StyleBox["\"Host: \"", 
+          GrayLevel[0.5], StripOnInput -> False],"\"localhost:27017\""},
+        "RowDefault"]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Column"],
+   FrameMargins->5], "]"}]], "Output",
+ CellChangeTimes->{3.6605324685103235`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"db", "=", 
+  RowBox[{"GetDatabase", "[", 
+   RowBox[{"connection", ",", "\"\<test1\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.660532603657054*^9, 3.6605326104654427`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Database", "[", 
+  PanelBox[
+   TagBox[GridBox[{
+      {
+       TemplateBox[{StyleBox["\"Name: \"", 
+          GrayLevel[0.5], StripOnInput -> False],"\"test1\""},
+        "RowDefault"]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Column"],
+   FrameMargins->5], "]"}]], "Output",
+ CellChangeTimes->{3.6605326108894672`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"collection", "=", 
+  RowBox[{"GetCollection", "[", 
+   RowBox[{"db", ",", "\"\<testCollection\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.660532699524537*^9, 3.660532725674032*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Collection", "[", 
+  PanelBox[
+   TagBox[GridBox[{
+      {
+       TemplateBox[{StyleBox["\"Name: \"", 
+          GrayLevel[0.5], StripOnInput -> False],"\"testCollection\""},
+        "RowDefault"]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Column"],
+   FrameMargins->5], "]"}]], "Output",
+ CellChangeTimes->{3.6605327263660717`*^9}]
+}, Open  ]],
+
+Cell[TextData[StyleBox["Some Query operators are transparently executed on \
+the database server.",
+ FontWeight->"Bold"]], "Text",
+ CellChangeTimes->{{3.6605327323504143`*^9, 3.660532781684236*^9}}],
+
+Cell["Populate some example data:", "Text",
+ CellChangeTimes->{{3.6605327844623947`*^9, 3.660532793871933*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"InsertDocument", "[", 
+    RowBox[{"collection", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<a\>\"", "\[Rule]", "#"}], ",", 
+       RowBox[{"\"\<b\>\"", "\[Rule]", 
+        RowBox[{"2", "#"}]}]}], "}"}]}], "]"}], "&"}], "/@", 
+  RowBox[{"Range", "[", "5", "]"}]}]], "Input",
+ CellChangeTimes->{{3.66053280080433*^9, 3.6605328207754717`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", "0", ",", "0", ",", "0", ",", "0"}], "}"}]], "Output",
+ CellChangeTimes->{3.6605328231036053`*^9}]
+}, Open  ]],
+
+Cell["Take the mean of \[OpenCurlyDoubleQuote]a\[CloseCurlyDoubleQuote]:", \
+"Text",
+ CellChangeTimes->{{3.6605328273728495`*^9, 3.6605328282538996`*^9}, {
+   3.6605328966488113`*^9, 3.660532901054064*^9}, 3.660532981149645*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"collection", "[", 
+  RowBox[{"Mean", ",", "\"\<a\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.6605329025691504`*^9, 3.6605329057863345`*^9}}],
+
+Cell[BoxData["3.`"], "Output",
+ CellChangeTimes->{3.660532906214359*^9}]
+}, Open  ]],
+
+Cell["Min, Max and Total are also supported:", "Text",
+ CellChangeTimes->{{3.660532917617011*^9, 3.66053294731971*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"collection", "[", 
+    RowBox[{"#", ",", "\"\<a\>\""}], "]"}], "&"}], "/@", 
+  RowBox[{"{", 
+   RowBox[{"Min", ",", "Max", ",", "Total"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.6605329253674545`*^9, 3.660532944826567*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", "5", ",", "15"}], "}"}]], "Output",
+ CellChangeTimes->{{3.6605329378341675`*^9, 3.660532945119584*^9}}]
+}, Open  ]],
+
+Cell["Fetch a document, or a range of documents:", "Text",
+ CellChangeTimes->{{3.660532964221677*^9, 3.6605329780534678`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"collection", "[", 
+  RowBox[{"1", ";;", "2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.660532983571783*^9, 3.660533010909347*^9}}],
+
+Cell[BoxData[
+ RowBox[{"MongoDBLinkUtils`Iterate", "[", 
+  TagBox[
+   RowBox[{"Removed", "[", "\<\"JavaObject7094261069643777\"\>", "]"}],
+   False,
+   Editable->False], "]"}]], "Output",
+ CellChangeTimes->{{3.660532988280053*^9, 3.6605330114953804`*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{767, 896},
+WindowMargins->{{Automatic, 31}, {Automatic, 14}},
+FrontEndVersion->"10.0 for Microsoft Windows (64-bit) (December 4, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Info3660504039-5993952"->{
+  Cell[7142, 236, 2904, 46, 246, "Print",
+   CellTags->"Info3660504039-5993952"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Info3660504039-5993952", 16334, 491}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 96, 1, 101, "Title"],
+Cell[679, 25, 205, 4, 49, "Text"],
+Cell[887, 31, 477, 11, 49, "Text"],
+Cell[1367, 44, 124, 2, 31, "Input"],
+Cell[CellGroupData[{
+Cell[1516, 50, 154, 2, 70, "Section"],
+Cell[1673, 54, 605, 18, 85, "Usage",
+ CellID->822],
+Cell[CellGroupData[{
+Cell[2303, 76, 112, 1, 39, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[2440, 81, 137, 1, 29, "Item"],
+Cell[2580, 84, 240, 4, 45, "Item"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2869, 94, 103, 1, 39, "Subsubsection"],
+Cell[2975, 97, 100, 1, 30, "Text"],
+Cell[CellGroupData[{
+Cell[3100, 102, 162, 3, 31, "Input"],
+Cell[3265, 107, 495, 14, 50, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3821, 128, 169, 2, 70, "Section"],
+Cell[3993, 132, 560, 15, 85, "Usage",
+ CellID->15527543],
+Cell[CellGroupData[{
+Cell[4578, 151, 112, 1, 39, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[4715, 156, 173, 2, 29, "Item"],
+Cell[4891, 160, 262, 5, 29, "Item"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5202, 171, 103, 1, 39, "Subsubsection"],
+Cell[5308, 174, 146, 2, 30, "Text"],
+Cell[CellGroupData[{
+Cell[5479, 180, 162, 3, 31, "Input"],
+Cell[5644, 185, 495, 14, 50, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6176, 204, 201, 4, 31, "Input"],
+Cell[6380, 210, 475, 14, 50, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6916, 231, 223, 3, 70, "Section"],
+Cell[7142, 236, 2904, 46, 246, "Print",
+ CellTags->"Info3660504039-5993952"],
+Cell[CellGroupData[{
+Cell[10071, 286, 112, 1, 39, "Subsubsection"],
+Cell[CellGroupData[{
+Cell[10208, 291, 226, 3, 29, "Item"],
+Cell[10437, 296, 325, 6, 29, "Item"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10811, 308, 103, 1, 39, "Subsubsection"],
+Cell[10917, 311, 136, 2, 30, "Text"],
+Cell[11056, 315, 201, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[11282, 322, 162, 3, 31, "Input"],
+Cell[11447, 327, 495, 14, 50, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11979, 346, 201, 4, 31, "Input"],
+Cell[12183, 352, 475, 14, 50, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12695, 371, 210, 4, 31, "Input"],
+Cell[12908, 377, 486, 14, 50, "Output"]
+}, Open  ]],
+Cell[13409, 394, 198, 3, 30, "Text"],
+Cell[13610, 399, 111, 1, 30, "Text"],
+Cell[CellGroupData[{
+Cell[13746, 404, 404, 11, 31, "Input"],
+Cell[14153, 417, 147, 3, 31, "Output"]
+}, Open  ]],
+Cell[14315, 423, 228, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[14568, 430, 167, 3, 31, "Input"],
+Cell[14738, 435, 72, 1, 31, "Output"]
+}, Open  ]],
+Cell[14825, 439, 119, 1, 30, "Text"],
+Cell[CellGroupData[{
+Cell[14969, 444, 272, 7, 31, "Input"],
+Cell[15244, 453, 152, 3, 31, "Output"]
+}, Open  ]],
+Cell[15411, 459, 126, 1, 30, "Text"],
+Cell[CellGroupData[{
+Cell[15562, 464, 153, 3, 31, "Input"],
+Cell[15718, 469, 255, 6, 31, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

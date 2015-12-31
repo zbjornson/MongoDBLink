@@ -10,11 +10,11 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     57700,       1155]
-NotebookOptionsPosition[     13268,        418]
-NotebookOutlinePosition[     56180,       1107]
-CellTagsIndexPosition[     56137,       1104]
-WindowTitle->Database Connectivity
+NotebookDataLength[     16130,        467]
+NotebookOptionsPosition[     13373,        397]
+NotebookOutlinePosition[     15167,        440]
+CellTagsIndexPosition[     15124,        437]
+WindowTitle->MongoDB Connectivity
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -236,7 +236,8 @@ Cell[TextData[{
    BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
  " ",
  StyleBox["\[LongDash]", "GuideEmDash"],
- " represents a MongoDB collection. Transparently executes some Query operators on the database server."
+ " represents a MongoDB collection. Transparently executes some Query \
+operators on the database server."
 }], "GuideText",
  Editable->True,
  CellID->140443085],
@@ -256,8 +257,6 @@ Cell[TextData[{
 
 Cell["\t", "GuideDelimiterSubsection",
  CellID->173667456],
-
-Cell[CellGroupData[{
 
 Cell[TextData[{
  Cell[BoxData[
@@ -307,7 +306,6 @@ Cell[TextData[{
 }], "InlineGuideFunctionListing",
  Editable->True],
 
-
 Cell[TextData[{
  Cell[BoxData[
   TemplateBox[{Cell[
@@ -335,8 +333,6 @@ Cell[TextData[{
  "\[NonBreakingSpace]"
 }], "InlineGuideFunctionListing",
  Editable->True],
-
-
 
 Cell[TextData[{
  Cell[BoxData[
@@ -366,7 +362,6 @@ Cell[TextData[{
 }], "InlineGuideFunctionListing",
  Editable->True],
 
-
 Cell[TextData[{
  Cell[BoxData[
   TemplateBox[{Cell[
@@ -393,8 +388,7 @@ Cell[TextData[{
    BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans"],
  "\[NonBreakingSpace]"
 }], "InlineGuideFunctionListing",
- Editable->True]
-}, Open  ]],
+ Editable->True],
 
 Cell["", "SectionFooterSpacer"]
 }, Open  ]],
@@ -404,7 +398,7 @@ Cell[" ", "FooterCell"]
 Saveable->True,
 ScreenStyleEnvironment->"Working",
 WindowSize->{728, 813},
-WindowMargins->{{Automatic, 264}, {Automatic, 79}},
+WindowMargins->{{Automatic, 44}, {Automatic, 39}},
 WindowTitle->"MongoDB Connectivity",
 TaggingRules->{
  "ModificationHighlight" -> False, "ColorType" -> "GuideColor", "LinkTrails" -> 
@@ -414,20 +408,17 @@ TaggingRules->{
         "Wolfram Language", ButtonData -> "paclet:guide/WolframRoot", 
          BaseStyle -> {"Link", "DockedLinkTrail"}], 
         Cell[">", "DockedLinkTrailSeparator"], 
-        ButtonBox[
-        "zbjornson",
-         BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, ColumnAlignments -> 
-    Left], "ExampleCounter" -> 1, 
-  "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, 
-  "RootCaptions" -> "", 
+        ButtonBox["zbjornson", BaseStyle -> {"Link", "DockedLinkTrail"}]}]}}, 
+    ColumnAlignments -> Left], "ExampleCounter" -> 1, 
+  "ExamplePageLinks" -> {}, "NeedPlatMsgIn" -> None, "RootCaptions" -> "", 
   "Metadata" -> {
    "built" -> "{2015, 12, 30, 19, 42, 56.525934}", 
     "history" -> {"6", "", "", ""}, "context" -> "System`", 
     "keywords" -> {
-     "external data", "foreign data", "data base", "NoSQL", "MongoDB"}, "specialkeywords" -> {}, 
-    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
-    "Wolfram Language Guide", "language" -> "en", "paclet" -> "MongoDBLink", 
-    "status" -> "None", "summary" -> 
+     "external data", "foreign data", "data base", "NoSQL", "MongoDB"}, 
+    "specialkeywords" -> {}, "tutorialcollectionlinks" -> {}, "index" -> True,
+     "label" -> "Wolfram Language Guide", "language" -> "en", "paclet" -> 
+    "MongoDBLink", "status" -> "None", "summary" -> 
     "A package to connect to the MongoDB NoSQL database.", 
     "synonyms" -> {"databases", "mongodb", "mongo", "MongoDBLink"}, "title" -> 
     "MongoDB Connectivity", "titlemodifier" -> "", "windowtitle" -> 
@@ -448,57 +439,36 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[593, 21, 6131, 142, 48, "AnchorBarGrid",
+Cell[592, 21, 6131, 142, 48, "AnchorBarGrid",
  CellID->1],
 Cell[CellGroupData[{
-Cell[6749, 167, 79, 2, 47, "GuideTitle",
+Cell[6748, 167, 79, 2, 47, "GuideTitle",
  CellID->942062912],
-Cell[6831, 171, 569, 13, 120, "GuideAbstract",
+Cell[6830, 171, 569, 13, 120, "GuideAbstract",
  CellID->225997140]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[7437, 189, 257, 11, 31, "GuideReferenceSection"],
-Cell[7697, 202, 31, 0, 14, "SectionHeaderSpacer"],
-Cell[7731, 204, 325, 11, 21, "GuideText",
+Cell[7436, 189, 257, 11, 31, "GuideReferenceSection"],
+Cell[7696, 202, 31, 0, 14, "SectionHeaderSpacer"],
+Cell[7730, 204, 347, 11, 21, "GuideText",
  CellID->511103008],
-Cell[8059, 217, 309, 11, 21, "GuideText",
+Cell[8080, 217, 311, 11, 21, "GuideText",
  CellID->7718062],
-Cell[8371, 230, 313, 11, 21, "GuideText",
+Cell[8394, 230, 389, 12, 35, "GuideText",
  CellID->140443085],
-Cell[8687, 243, 312, 11, 21, "GuideText",
+Cell[8786, 244, 314, 11, 21, "GuideText",
  CellID->391360324],
-Cell[9002, 256, 58, 1, 21, "GuideDelimiterSubsection",
+Cell[9103, 257, 58, 1, 21, "GuideDelimiterSubsection",
  CellID->173667456],
-Cell[CellGroupData[{
-Cell[9085, 261, 270, 7, 31, "GuideFunctionsSubsection",
- CellID->3012331],
-Cell[9358, 270, 346, 12, 21, "GuideText",
- CellID->621178339],
-Cell[9707, 284, 1453, 44, 20, "InlineGuideFunctionListing",
+Cell[9164, 260, 601, 18, 20, "InlineGuideFunctionListing",
  CellID->49389736],
-Cell[11163, 330, 48, 1, 26, "GuideDelimiter",
- CellID->405613271],
-Cell[11214, 333, 316, 12, 21, "GuideText",
- CellID->203374175],
-Cell[11533, 347, 362, 11, 21, "GuideText",
- CellID->398656719]
+Cell[9768, 280, 871, 26, 20, "InlineGuideFunctionListing"],
+Cell[10642, 308, 885, 26, 20, "InlineGuideFunctionListing"],
+Cell[11530, 336, 885, 26, 20, "InlineGuideFunctionListing"],
+Cell[12418, 364, 879, 26, 20, "InlineGuideFunctionListing"],
+Cell[13300, 392, 31, 0, 29, "SectionFooterSpacer"]
 }, Open  ]],
-Cell[11910, 361, 31, 0, 29, "SectionFooterSpacer"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[11978, 366, 281, 12, 31, "GuideMoreAboutSection",
- CellID->23220180],
-Cell[12262, 380, 31, 0, 14, "SectionHeaderSpacer"],
-Cell[12296, 382, 232, 6, 19, "GuideMoreAbout",
- CellID->1567025153],
-Cell[12531, 390, 265, 7, 19, "GuideMoreAbout",
- CellID->1433568355],
-Cell[12799, 399, 217, 6, 19, "GuideMoreAbout",
- CellID->74497593],
-Cell[13019, 407, 207, 6, 19, "GuideMoreAbout",
- CellID->252299663]
-}, Open  ]],
-Cell[13241, 416, 23, 0, 41, "FooterCell"]
+Cell[13346, 395, 23, 0, 41, "FooterCell"]
 }
 ]
 *)
