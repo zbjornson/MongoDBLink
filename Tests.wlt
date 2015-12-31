@@ -1,7 +1,3 @@
-<< MongoDBLink`
-
-ReinstallJava[CommandLine -> "C:\\Program Files\\Java\\jre1.8.0_40\\bin\\java.exe"];
-
 BeginTestSection["Tests"]
 
 BeginTestSection["Connection, Database"]

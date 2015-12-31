@@ -90,4 +90,7 @@ replacing `:` with `;` on Windows.
 
 (I'm open for suggestion to improve this. To me this is less complicated than dealing with an Eclipse or NetBeans project for a project this small.)
 
-Tests live in `Tests.wlt` and are runnable with `TestReport["Tests.wlt"]`.
+Tests live in `Tests.wlt` and are runnable with
+
+    << MongoDBLink`
+    TestReport["Tests.wlt"]
