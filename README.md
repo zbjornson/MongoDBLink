@@ -42,6 +42,12 @@ Unfortunately I lost my installation of Workbench and can't generate nice docs f
     (* Fetch all documents *)
     FindDocuments[coll]
 
+    (* Limit the fields returned *)
+    FindDocuments[coll, "Fields" -> {"b"}]
+
+    (* Paginate results *)
+    FindDocuments[coll, "Offset"->1, "Limit"->1]
+
     (* Use query operators. Refer to the MongoDB docs for info on valid operators. *)
     FindDocuments[coll, {"a" -> {"$gt" -> 2}}]
 
