@@ -10,7 +10,10 @@ Paclet[
     {
       {
         "Documentation",
-        Resources -> {"Guides/SQLDatabaseOperations"},
+        Resources -> {
+          "Guides/MongoDBLink",
+          "ReferencePages/Symbols/DatabaseConnection"
+        },
         Language -> "English"
       }
     }
