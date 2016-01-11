@@ -275,9 +275,15 @@ serialize[x : $rulepattern] := serialize[Null, x]
 serialize[{}] := JavaNew["com.mongodb.BasicDBObject"]
 
 serialize[_, x : $rulepattern] := Block[
-  {newdbobj = JavaNew["com.mongodb.BasicDBObject"]}, 
+  {newdbobj = JavaNew["com.mongodb.BasicDBObject"]},
   Map[serialize[newdbobj, #] &, x];
   newdbobj
+]
+
+serialize[_, x : { $rulepattern }] := Block[
+  {newdblist = JavaNew["com.mongodb.BasicDBList"]},
+  MapIndexed[newdblist@put[First[#2] - 1, serialize[#]]&, x];
+  newdblist
 ]
 
 (* $in, $nin, ... *)
