@@ -122,6 +122,15 @@ VerificationTest[
 	TestID->"494fa114-f280-49de-b9fe-b10ab903ab67"
 ]
 
+VerificationTest[
+	collection2 = GetCollection[database, "test2"];
+	InsertDocument[collection2, {"a" -> {"b" -> {"c" -> 1}, "d" -> {"e" -> 1}}}];
+
+	MatchQ[FindDocuments[collection2], {{"_id" -> _,  "a" -> {"b" -> {"c" -> 1}, "d" -> {"e" -> 1}}}}],
+	True,
+	TestID->"b2a0406c-42f0-465d-aaf8-a7f469922704"
+]
+
 EndTestSection[]
 
 BeginTestSection["FindDistinct"]
@@ -400,6 +409,6 @@ VerificationTest[
 	TestID->"54141c89-9157-4911-b37a-5e95d34f7d28"
 ]
 
-Clear[connection, database, collection1];
+Clear[connection, database, collection1, collection2];
 
 EndTestSection[]

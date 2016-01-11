@@ -274,7 +274,7 @@ serialize[x : $rulepattern] := serialize[Null, x]
 
 serialize[{}] := JavaNew["com.mongodb.BasicDBObject"]
 
-serialize[_, x : $rulepattern] := JavaBlock@Block[
+serialize[_, x : $rulepattern] := Block[
   {newdbobj = JavaNew["com.mongodb.BasicDBObject"]}, 
   Map[serialize[newdbobj, #] &, x];
   newdbobj
@@ -322,7 +322,7 @@ FindDocuments[collection_Collection, query:($rulepattern|{}), opts:_Rule...] := 
   iFindDocuments[collection, query, projection, offset, limit]
 ]
 
-iFindDocuments[collection_Collection, query_, projection_, offset_, limitValue_] := JavaBlock@Block[
+iFindDocuments[collection_Collection, query_, projection_, offset_, limitValue_] := (*JavaBlock@*)Block[
   {
     serializedQuery,
     serializedProjection,
