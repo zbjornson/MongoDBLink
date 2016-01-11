@@ -378,6 +378,14 @@ VerificationTest[
 	TestID->"aa43675c-c925-4450-b221-8cb964194447"
 ]
 
+VerificationTest[
+	MongoDBLink`Private`serialize[Null, {"a", 1}]@toString[]
+	,
+	"[ \"a\" , 1]"
+	,
+	TestID->"fb9e1587-20db-49d5-a67e-c9b04d7a35a4"
+]
+
 EndTestSection[]
 
 VerificationTest[
