@@ -24,28 +24,24 @@ class MongoDBLinkUtils {
 		}
 	}
 
-	private static void Deserialize(KernelLink link, DBObject elem) {
-		try {
-
-			Map<String, Object> elemMap = elem.toMap();
-			link.putFunction("List", elemMap.size());
-			for (Map.Entry<String, Object> entry : elemMap.entrySet()) {
+	private static void Deserialize(KernelLink link, DBObject elem) throws MathLinkException {
+		Map<String, Object> elemMap = elem.toMap();
+		link.putFunction("List", elemMap.size());
+		for (Map.Entry<String, Object> entry : elemMap.entrySet()) {
+			if (elem instanceof BasicDBObject) {
 				link.putFunction("Rule", 2);
 				link.put(entry.getKey());
-				Object value = entry.getValue();
-				if (value instanceof org.bson.types.ObjectId) {
-					link.put(value.toString());
-				} else if (value instanceof BasicDBList) {
-					link.put(((BasicDBList) value).toArray());
-				} else if (value instanceof BasicDBObject) {
-					Deserialize(link, (BasicDBObject) value);
-				} else {
-					link.put(value);
-				}
+			} // otherwise it's a BasicDBList
+			Object value = entry.getValue();
+			if (value instanceof org.bson.types.ObjectId) {
+				link.put(value.toString());
+			} else if (value instanceof BasicDBList) {
+				Deserialize(link, (BasicDBList) value);
+			} else if (value instanceof BasicDBObject) {
+				Deserialize(link, (BasicDBObject) value);
+			} else {
+				link.put(value);
 			}
-
-		} catch (Exception e) {
-			System.out.println("Exception:" + e.toString());
 		}
 	}
 

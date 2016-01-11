@@ -2,8 +2,6 @@ BeginTestSection["Tests"]
 
 BeginTestSection["Connection, Database"]
 
-connection; database; collection1;
-
 VerificationTest[
 	connection = OpenConnection[];
 	MatchQ[connection, DatabaseConnection["localhost", 27017, _?(InstanceOf[#, "com.mongodb.MongoClient"]&)]]
@@ -131,6 +129,15 @@ VerificationTest[
 	TestID->"b2a0406c-42f0-465d-aaf8-a7f469922704"
 ]
 
+VerificationTest[
+	collection3 = GetCollection[database, "test3"];
+	InsertDocument[collection3, {"a" -> 1, "b" -> {{"b1" -> 1}}}];
+
+	MatchQ[FindDocuments[collection3], {{"_id" -> _, "a" -> 1, "b" -> {{"b1" -> 1}}}}],
+	True,
+	TestID->"738d2377-71a6-4869-ab08-a3349e682f5d"
+]
+
 EndTestSection[]
 
 BeginTestSection["FindDistinct"]
@@ -175,15 +182,13 @@ EndTestSection[]
 
 BeginTestSection["Update"]
 
+(* TODO *)
+
 EndTestSection[]
 
 BeginTestSection["Delete"]
 
-VerificationTest[
-	Null
-	,
-	Null	
-]
+(* TODO *)
 
 EndTestSection[]
 
@@ -425,6 +430,6 @@ VerificationTest[
 	TestID->"54141c89-9157-4911-b37a-5e95d34f7d28"
 ]
 
-Clear[connection, database, collection1, collection2];
+Clear[connection, database, collection1, collection2, collection3];
 
 EndTestSection[]

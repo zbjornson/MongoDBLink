@@ -4,7 +4,7 @@
 
 Paclet[
   Name -> "MongoDBLink",
-  Version -> "0.1.3",
+  Version -> "0.1.4",
   MathematicaVersion -> "6+",
   Extensions -> 
     {
