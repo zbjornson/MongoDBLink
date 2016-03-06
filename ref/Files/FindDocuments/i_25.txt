@@ -1,0 +1,4 @@
+<pre name='i_25_in' id='i_25_in' class='IFT'>Table[
+ FindDocuments[collection, &quot;Limit&quot; -&gt; 2, &quot;Offset&quot; -&gt; i],
+ {i, 1, 10, 2}
+ ]</pre><div class='IFU'><a name='417316758'></a>http://wolfram.com/xid/0cy2p081wnnx492kwgd3hcj-g6qtyg</div>

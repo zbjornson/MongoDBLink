@@ -1,0 +1,3 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>(*Create test documents*)
+InsertDocument[collection, {&quot;a&quot; -&gt; #, &quot;b&quot; -&gt; 2*#, &quot;c&quot; -&gt; # + 10}] &amp; /@
+   Range[10];</pre><div class='IFU'><a name='317032811'></a>http://wolfram.com/xid/0bhaw99qj78cv16uz6wt7qmq-fi1ec9</div>

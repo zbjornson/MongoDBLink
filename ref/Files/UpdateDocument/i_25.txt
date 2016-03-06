@@ -1,0 +1,2 @@
+<pre name='i_25_in' id='i_25_in' class='IFT'>UpdateDocument[collection, {&quot;a&quot; -&gt; -100}, {&quot;b&quot; -&gt; 2}, 
+ &quot;Upsert&quot; -&gt; True]</pre><div class='IFU'><a name='62918577'></a>http://wolfram.com/xid/0bhaw99qj78cv16uz8a0t4cy-bbqukj</div>

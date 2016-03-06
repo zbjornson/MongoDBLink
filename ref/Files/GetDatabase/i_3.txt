@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>db = GetDatabase[conn, &quot;testdb&quot;]</pre><div class='IFU'><a name='401418836'></a>http://wolfram.com/xid/0dm4w4c6vh3hjya4t737303jd3i-gw921i</div>

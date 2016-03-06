@@ -1,0 +1,2 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>InsertDocument[collection, {&quot;a&quot; -&gt; 1}, 
+ &quot;WriteConcern&quot; -&gt; &quot;Unacknowledged&quot;]</pre><div class='IFU'><a name='174621776'></a>http://wolfram.com/xid/0vslr90e89bk58km74djn2a-c581a6</div>

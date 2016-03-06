@@ -1,0 +1,3 @@
+<pre name='i_1_in' id='i_1_in' class='IFT'>conn = OpenConnection[];
+db = GetDatabase[conn, &quot;testdb&quot;];
+collection = GetCollection[db, &quot;mycollection&quot;];</pre><div class='IFU'><a name='958237549'></a>http://wolfram.com/xid/0bhaw99qj78cv16uz8a0t4cy-p4sm3z</div>

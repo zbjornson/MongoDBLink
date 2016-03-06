@@ -1,0 +1,1 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>collection = GetCollection[db, &quot;mycollection&quot;]</pre><div class='IFU'><a name='149992312'></a>http://wolfram.com/xid/0bhaw99qj78cv16uz6wt7qmq-crk43e</div>

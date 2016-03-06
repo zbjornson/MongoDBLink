@@ -1,0 +1,1 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>FindDocuments[collection, {&quot;a&quot; -&gt; {&quot;$gt&quot; -&gt; 5}}]</pre><div class='IFU'><a name='457801657'></a>http://wolfram.com/xid/0cy2p081wnnx492kwgd3hcj-huukaz</div>

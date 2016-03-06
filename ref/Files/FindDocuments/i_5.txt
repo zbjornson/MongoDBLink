@@ -1,0 +1,2 @@
+<pre name='i_5_in' id='i_5_in' class='IFT'>InsertDocument[collection, {&quot;a&quot; -&gt; #, &quot;b&quot; -&gt; 2*#, &quot;c&quot; -&gt; # + 10}] &amp; /@
+   Range[10];</pre><div class='IFU'><a name='25249587'></a>http://wolfram.com/xid/0cy2p081wnnx492kwgd3hcj-pbgzp</div>

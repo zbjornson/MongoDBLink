@@ -1,0 +1,1 @@
+<pre name='i_21_in' id='i_21_in' class='IFT'>UpdateDocument[collection, {}, {&quot;$set&quot; -&gt; {&quot;w&quot; -&gt; 2}}]</pre><div class='IFU'><a name='9804824'></a>http://wolfram.com/xid/0bhaw99qj78cv16uz8a0t4cy-f4fqi</div>

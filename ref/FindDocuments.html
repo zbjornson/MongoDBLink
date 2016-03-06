@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FindDocuments&mdash;Wolfram Language Documentation</title>
+<meta name="buildnumber" content="0000000" />
+<meta name="historydata" content="{XX, , , }" />
+<meta name="keywords" content="FindDocuments" />
+
+<meta name="description" content="FindDocuments[collection] returns all documents from the collection. FindDocuments[collection, query] selects documents that satisfy the query." />
+<script language="JavaScript" type="text/javascript">baselang='FindDocuments';</script>
+<!--#include virtual="/common/includes/gl-head-includes.html"-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		 <link rel="stylesheet" type="text/css" href="../css/reference.css" />
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/core/1.6.1/jquery.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/hoverIntent/r5/jquery.hoverIntent.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/reference.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/documentation-search.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/inputs.js"></script>
+		 <script language="javaScript" type="text/javascript" src="../javascript/faster-page-load.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery/plugins/jcarousel/tinycarousel/tinycarousel.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/jquery.dotdotdot-1.5.1.js"></script>
+		 <script language="javascript" type="text/javascript" src="../javascript/carousel.js"></script>
+<script language="JavaScript" type="text/javascript" src="..//javascript/toggle-highlight.js"></script>
+</head>
+<body id="ref" class="function">
+<a name="top"></a>
+<!--#include virtual="/common/includes/gl-header.html"--> 
+<div class="main-wrapper">
+
+
+<div class="wrapper mainOuter">
+    <div class="mainContent">
+ <div class="topContentWrap">
+  <div class="ribbonWrap">
+   <span class="ribbonOuter"><span class="ribbonInner">MONGO D B LINK PACKAGE SYMBOL</span></span>
+  </div>
+  <ul class="dropdown">
+   <li>
+    <a href="#">See Also</a>
+    <ul class="sub_menu">
+     <li>
+      <a href="InsertDocument.html"><span class="dropdownPad">InsertDocument</span></a>
+     </li>
+     <li>
+      <a href="DeleteDocument.html"><span class="dropdownPad">DeleteDocument</span></a>
+     </li>
+     <li>
+      <a href="UpdateDocument.html"><span class="dropdownPad">UpdateDocument</span></a>
+     </li>
+     <li>
+      <a href="GetCollection.html"><span class="dropdownPad">GetCollection</span></a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+  <div class="clear"><!-- --></div>
+ </div>
+ <h1>FindDocuments</h1>
+ <div class="functionIntroWrap">
+  <div class="functionIntro">
+   <p><span class="IF">FindDocuments[<span class="TI">collection</span>]</span><br />returns all documents from the collection. </p>
+  </div>
+  <div class="functionIntro">
+   <p><span class="IF"><img src="Files/FindDocuments/1.png" height="18" width="187" alt="" /></span><br />selects documents that satisfy the query.</p>
+  </div>
+ </div>
+ <div class="expandWrap closed"
+     id="DetailsAndOptions">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Details</a><a class="collapse" title="hide" href="#">Details</a></h2>
+   <div class="expanded">
+    <ul class="functionList">
+     <li>The following options can be given: </li>
+     <li class="NotesTable">
+      <table>
+       <col width="1%" />
+       <col width="28%" />
+       <col width="28%" />
+       <col width="43%" />
+       <tr class="lineAbove" style=""><td /><td>&quot;Limit&quot;</td><td><a href="http://reference.wolfram.com/language/ref/Infinity.html">Infinity</a></td><td><span class="TT">Limits the number of returned documents.</span></td></tr>
+       <tr class="" style=""><td /><td>&quot;Offset&quot;</td><td>0</td><td><span class="TT">Skips the specified number of documents.</span></td></tr>
+       <tr class="" style=""><td /><td>&quot;Fields&quot;</td><td><a href="http://reference.wolfram.com/language/ref/All.html">All</a></td><td><span class="TT">Selects a subset of fields to return.</span></td></tr>
+      </table>
+     </li>
+     <li><a name="250235200"></a>Queries may contain any of the MongoDB query operators. For a list of operators, see <a href="https://docs.mongodb.org/manual/reference/operator/query/">https://docs.mongodb.org/manual/reference/operator/query/</a>.</li>
+    </ul>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="Examples">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">Examples</a><a class="collapse" title="hide" href="#">Examples</a><a class="all opener" title="open all" href="#"><span>open all</span></a><a class="all closer hide" title="close all" href="#"><span>close all</span></a></h2>
+   <div class="expanded">
+    <div class="expandSubWrap">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Basic Examples<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded">
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+           <a name="333965570"></a>
+           <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/FindDocuments/I_2.gif" height="15" width="133" alt="Click for copyable input" /></a>
+          </div><div id="i_1_out" class="IFL"></div></td></tr>
+       </table>
+       <p><a name="481467709"></a>Open a database connection, get the database and get the collection:</p>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+           <a name="958237549"></a>
+           <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/FindDocuments/I_4.gif" height="50" width="253" alt="Click for copyable input" /></a>
+          </div><div id="i_3_out" class="IFL"></div></td></tr>
+       </table>
+       <p><a name="57759323"></a>Insert test documents:</p>
+       <table class="InCell">
+        <tr><td class="lab"><a href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[3]:=</a></td><td class="Input"><div>
+           <a name="25249587"></a>
+           <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/FindDocuments/I_6.gif" height="15" width="443" alt="Click for copyable input" /></a>
+          </div><div id="i_5_out" class="IFL"></div></td></tr>
+       </table>
+       <p><a name="129892219"></a>Find all documents:</p>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[4]:=</a></td><td class="Input"><div>
+            <a name="171050693"></a>
+            <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/FindDocuments/I_8.gif" height="15" width="145" alt="Click for copyable input" /></a>
+           </div><div id="i_7_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[4]=</td><td class="Output"><img src="Files/FindDocuments/O_1.gif" height="169" width="320" alt="" /></td></tr>
+        </table>
+       </div>
+       <p><a name="824225169"></a>Find documents matching a query:</p>
+       <div class="IO">
+        <table class="InCell">
+         <tr><td class="lab"><a href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[5]:=</a></td><td class="Input"><div>
+            <a name="42963918"></a>
+            <a href="javascript:input('i_9')" onmouseover="javascript:return(true);"><img src="Files/FindDocuments/I_10.gif" height="15" width="202" alt="Click for copyable input" /></a>
+           </div><div id="i_9_out" class="IFL"></div></td></tr>
+        </table>
+        <table class="OCell">
+         <tr><td class="lab">Out[5]=</td><td class="Output"><img src="Files/FindDocuments/O_2.gif" height="15" width="301" alt="" /></td></tr>
+        </table>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="expandSubWrap closed">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Scope<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Scope<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded"></div>
+     </div>
+    </div>
+    <div class="expandSubWrap closed">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Scope2<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Scope2<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded"></div>
+     </div>
+    </div>
+    <div class="expandSubWrap closed">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Options<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(3)</span></a><a class="collapse" href="#" title="hide">Options<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(3)</span></a></h3>
+      <div class="expanded"></div>
+     </div>
+    </div>
+    <div class="expandSubWrap closed">
+     <div class="expandSubOuter">
+      <h3 class="expandSubInner"><a class="expand hide" href="#" title="show">Applications<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a><a class="collapse" href="#" title="hide">Applications<span class="special-character NonBreakingSpace">&#160;</span><span class="special-character NonBreakingSpace">&#160;</span><span>(1)</span></a></h3>
+      <div class="expanded"></div>
+     </div>
+    </div>
+    <div class="toplink">
+     <a href="#top">Top</a>
+    </div>
+    <div class="clear"><!-- --></div>
+   </div>
+  </div>
+ </div>
+ <div class="expandWrap"
+     id="SeeAlso">
+  <div class="expandOuter">
+   <h2 class="expandInner"><a class="expand hide" title="show" href="#">See Also</a><a class="collapse" title="hide" href="#">See Also</a></h2>
+   <div class="expanded">
+    <p class="inlineFunctionList"><span class="IF"><a href="InsertDocument.html">InsertDocument</a></span> . <span class="IF"><a href="DeleteDocument.html">DeleteDocument</a></span> . <span class="IF"><a href="UpdateDocument.html">UpdateDocument</a></span> . <span class="IF"><a href="GetCollection.html">GetCollection</a></span></p>
+   </div>
+  </div>
+ </div>
+</div>
+</div><!-- /wrapper -->
+
+	
+</div>
+<!--#include virtual="/common/includes/gl-footer.html"-->
+<!--#include virtual="/common/includes/gl-footer-includes.html"-->
+</body>
+		 </html>
