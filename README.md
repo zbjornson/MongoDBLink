@@ -16,7 +16,9 @@ This will install the package in the `$UserAddOnsDirectory`. You may prefer `$Ad
 
 ## Usage
 
-Unfortunately I lost my installation of Workbench and can't generate nice docs for now. All symbols have usage text accessible with `?symbol`, and Options[symbol]. Quick tutorial:
+**New** docs at http://zbjornson.github.io/MongoDBLink. These are incomplete and there are some interactivity bugs. When the docs are complete I will also distribute them with this package.
+
+All symbols have usage text accessible with `?symbol`, and `Options[symbol]`. Quick tutorial:
 
     (* Load the package *)
     << MongoDBLink`
