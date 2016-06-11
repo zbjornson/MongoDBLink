@@ -1,3 +1,5 @@
+(* ::Package:: *)
+
 (* Mathematica Package *)
 
 (* Author: Zach Bjornson *)
@@ -123,6 +125,18 @@ OpenConnection[host_String, port_Integer] := Block[{},
   LoadClass["com.mongodb.WriteConcern"];
   DatabaseConnection[host, port, JavaNew["com.mongodb.MongoClient", host, port]]
 ]
+
+OpenConnection[host_String, port_Integer, "", _, _]:= OpenConnection[host, port]
+
+OpenConnection[host_String, port_Integer, user_String, password_String, database_String] := Module[{al, credential},
+    InstallJava[];
+	LoadJavaClass["com.mongodb.MongoCredential"];
+	credential = MongoCredential`createCredential[user, database, MakeJavaObject[password]@toCharArray[]];
+	al = JavaNew["java.util.ArrayList"];
+	al@add[credential];
+	DatabaseConnection[host, port, JavaNew["com.mongodb.MongoClient", JavaNew["com.mongodb.ServerAddress",host, port],al]]
+]
+
 
 CloseConnection[connection_DatabaseConnection] :=
   JavaBlock[connection["connection"]@close[]; connection]
