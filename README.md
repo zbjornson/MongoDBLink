@@ -24,7 +24,7 @@ All symbols have usage text accessible with `?symbol`, and `Options[symbol]`. Qu
     << MongoDBLink`
 
     (* Connect to server. The server must already be running. *)
-    conn = OpenConnection[]; (* OpenConnection["host", port] also supported. *)
+    conn = OpenConnection[]; (* OpenConnection["host", port] and OpenConnection["host", port, "username", "password", "database"] also supported. *)
 
     (* List databases. *)
     DatabaseNames[conn]

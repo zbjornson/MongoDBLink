@@ -9,6 +9,7 @@ BeginPackage["MongoDBLink`", {"JLink`"}]
 OpenConnection::usage=
 "OpenConnection[] opens a MongoDB connection to localhost:27017.
 OpenConnection[host, port] opens a connection to the specified host and port.
+OpenConnection[host, port, username, password, database] opens a connection using the specified authorization.
 The database server must already be running; this function will not start the server.";
 
 DatabaseNames::usage=
@@ -129,12 +130,12 @@ OpenConnection[host_String, port_Integer] := Block[{},
 OpenConnection[host_String, port_Integer, "", _, _]:= OpenConnection[host, port]
 
 OpenConnection[host_String, port_Integer, user_String, password_String, database_String] := Module[{al, credential},
-    InstallJava[];
-	LoadJavaClass["com.mongodb.MongoCredential"];
-	credential = MongoCredential`createCredential[user, database, MakeJavaObject[password]@toCharArray[]];
-	al = JavaNew["java.util.ArrayList"];
-	al@add[credential];
-	DatabaseConnection[host, port, JavaNew["com.mongodb.MongoClient", JavaNew["com.mongodb.ServerAddress",host, port],al]]
+  InstallJava[];
+  LoadJavaClass["com.mongodb.MongoCredential"];
+  credential = MongoCredential`createCredential[user, database, MakeJavaObject[password]@toCharArray[]];
+  al = JavaNew["java.util.ArrayList"];
+  al@add[credential];
+  DatabaseConnection[host, port, JavaNew["com.mongodb.MongoClient", JavaNew["com.mongodb.ServerAddress",host, port],al]]
 ]
 
 
@@ -154,7 +155,7 @@ Database /:
 
 Database /: Database[name_String, db_]["db"] := db
 
-GetDatabase[connection_DatabaseConnection, database_String] := 
+GetDatabase[connection_DatabaseConnection, database_String] :=
   Database[database, connection["connection"]@getDB[database]];
 
 DropDatabase[connection_DatabaseConnection, database_String] :=
@@ -181,7 +182,7 @@ DropCollection[collection_Collection] :=
   ]
 
 
-Collection /: 
+Collection /:
   Format[Collection[name_String, collection_]] :=
   Block[{Collection},
     Collection[Panel[Column[{
@@ -295,19 +296,19 @@ serialize[_, x : $rulepattern] := Block[
 ]
 
 (* $in, $nin, ... *)
-serialize[dbobj_, Rule["_id", {a_ -> b_}]] := 
+serialize[dbobj_, Rule["_id", {a_ -> b_}]] :=
   dbobj@put["_id", serialize[dbobj, {a -> (ObjectId /@ b)}]]
 
-serialize[dbobj_, Rule["_id", v_]] /; Instance[v, "org.bson.types.ObjectId"] := 
+serialize[dbobj_, Rule["_id", v_]] /; Instance[v, "org.bson.types.ObjectId"] :=
   dbobj@put["_id", v]
 
-serialize[dbobj_, Rule["_id", Null]] := 
+serialize[dbobj_, Rule["_id", Null]] :=
   dbobj@put["_id", Null]
 
-serialize[dbobj_, Rule["_id", v_String]] := 
+serialize[dbobj_, Rule["_id", v_String]] :=
   dbobj@put["_id", ObjectId[v]]
 
-serialize[dbobj_, Rule[k_String, v_]] := 
+serialize[dbobj_, Rule[k_String, v_]] :=
   dbobj@put[MakeJavaObject[k], serialize[dbobj, v]]
 
 serialize[dbobj_, {}] := JavaNew["com.mongodb.BasicDBObject"]
