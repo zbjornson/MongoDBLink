@@ -3,6 +3,14 @@ BeginTestSection["Tests"]
 BeginTestSection["Connection, Database"]
 
 VerificationTest[
+	MatchQ[OpenConnection["mongodb://localhost:27017", DatabaseConnection["mongodb://localhost:27017", _?(InstanceOf[#, "com.mongodb.MongoClient"]&)]]
+	,
+	True
+	,
+	TestID->"b12cd126-ae75-4709-ae87-707624adec44"
+]
+
+VerificationTest[
 	connection = OpenConnection[];
 	MatchQ[connection, DatabaseConnection["localhost", 27017, _?(InstanceOf[#, "com.mongodb.MongoClient"]&)]]
 	,
@@ -313,7 +321,7 @@ BeginTestSection["Serializer"]
 VerificationTest[
 	MongoDBLink`Private`serialize[List[Rule["_id", List[Rule["$in", List["56838373c68636914452e6f9", "56838373c68636914452e6f0"]]]]]][toString[]]
 	,
-	"{ \"_id\" : { \"$in\" : [ { \"$oid\" : \"56838373c68636914452e6f9\"} , { \"$oid\" : \"56838373c68636914452e6f0\"}]}}"	
+	"{ \"_id\" : { \"$in\" : [ { \"$oid\" : \"56838373c68636914452e6f9\"} , { \"$oid\" : \"56838373c68636914452e6f0\"}]}}"
 	,
 	TestID->"317bd836-a18a-4974-95f6-aa04fe4f06aa"
 ]

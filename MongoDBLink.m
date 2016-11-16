@@ -8,8 +8,9 @@ BeginPackage["MongoDBLink`", {"JLink`"}]
 
 OpenConnection::usage=
 "OpenConnection[] opens a MongoDB connection to localhost:27017.
+OpenConnection[uri] opens a connection to the specified URI.
 OpenConnection[host, port] opens a connection to the specified host and port.
-OpenConnection[host, port, username, password, database] opens a connection using the specified authorization.
+OpenConnection[host, port, username, password, database] opens a connection using the specified authentication.
 The database server must already be running; this function will not start the server.";
 
 DatabaseNames::usage=
@@ -119,7 +120,24 @@ DatabaseConnection /:
 
 DatabaseConnection /: DatabaseConnection[host_String, port_Integer, connection_]["connection"] := connection
 
+DatabaseConnection /:
+  Format[DatabaseConnection[uri_String, connection_]] :=
+  Block[{DatabaseConnection},
+    DatabaseConnection[Panel[Column[{
+      Row[{Style["Host: ", Gray], uri}]
+    }], FrameMargins -> 5]]
+  ]
+
+DatabaseConnection /: DatabaseConnection[uri_String, connection_]["connection"] := connection
+
 OpenConnection[] := OpenConnection["localhost", 27017]
+
+OpenConnection[uri_String] := Block[{mcuri, hosts},
+  InstallJava[];
+  mcuri = JavaNew["com.mongodb.MongoClientURI", uri];
+  hosts =
+  DatabaseConnection[uri, JavaNew["com.mongodb.MongoClient", mcuri]]
+]
 
 OpenConnection[host_String, port_Integer] := Block[{},
   InstallJava[];

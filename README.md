@@ -7,12 +7,14 @@ A fast client for MongoDB, built on the official MongoDB java driver.
 
 This will install the package in the `$UserAddOnsDirectory`. You may prefer `$AddOnsDirectory` instead.
 
-    tmp = URLSave["https://github.com/zbjornson/MongoDBLink/archive/master.zip"];
-    dest = FileNameJoin[{$AddOnsDirectory, "Applications"}];
-    ExtractArchive[tmp, dest];
-    RenameDirectory[FileNameJoin[{dest, "MongoDBLink-master"}], FileNameJoin[{dest, "MongoDBLink"}]];
-    DeleteFile[tmp];
-    Print["Installed MongoDBLink to " <> dest]
+```Mathematica
+tmp = URLSave["https://github.com/zbjornson/MongoDBLink/archive/master.zip"];
+dest = FileNameJoin[{$AddOnsDirectory, "Applications"}];
+ExtractArchive[tmp, dest];
+RenameDirectory[FileNameJoin[{dest, "MongoDBLink-master"}], FileNameJoin[{dest, "MongoDBLink"}]];
+DeleteFile[tmp];
+Print["Installed MongoDBLink to " <> dest]
+```
 
 ## Usage
 
@@ -20,72 +22,79 @@ This will install the package in the `$UserAddOnsDirectory`. You may prefer `$Ad
 
 All symbols have usage text accessible with `?symbol`, and `Options[symbol]`. Quick tutorial:
 
-    (* Load the package *)
-    << MongoDBLink`
+```Mathematica
+(* Load the package *)
+<< MongoDBLink`
 
-    (* Connect to server. The server must already be running. *)
-    conn = OpenConnection[]; (* OpenConnection["host", port] and OpenConnection["host", port, "username", "password", "database"] also supported. *)
+(* Connect to server. The server must already be running. *)
+conn = OpenConnection[];
+(* Also supported:
+    OpenConnection["mongodb://..."]
+    OpenConnection["host", port]
+    OpenConnection["host", port, "username", "password", "database"]
+    *)
 
-    (* List databases. *)
-    DatabaseNames[conn]
+(* List databases. *)
+DatabaseNames[conn]
 
-    (* Get a database *)
-    db = GetDatabase[conn, "name"]
+(* Get a database *)
+db = GetDatabase[conn, "name"]
 
-    (* List collections *)
-    CollectionNames[db]
+(* List collections *)
+CollectionNames[db]
 
-    (* Get a collection *)
-    coll = GetCollection[db, "name"]
+(* Get a collection *)
+coll = GetCollection[db, "name"]
 
-    (* Add some example data. The return value is the number of documents modified, which is 0 for an insert. *)
-    InsertDocument[coll, {"a" -> #, "b" -> 2 #}] &/@ Range[5]
+(* Add some example data. The return value is the number of documents modified, which is 0 for an insert. *)
+InsertDocument[coll, {"a" -> #, "b" -> 2 #}] &/@ Range[5]
 
-    (* Fetch all documents *)
-    FindDocuments[coll]
+(* Fetch all documents *)
+FindDocuments[coll]
 
-    (* Limit the fields returned *)
-    FindDocuments[coll, "Fields" -> {"b"}]
+(* Limit the fields returned *)
+FindDocuments[coll, "Fields" -> {"b"}]
 
-    (* Paginate results *)
-    FindDocuments[coll, "Offset"->1, "Limit"->1]
+(* Paginate results *)
+FindDocuments[coll, "Offset"->1, "Limit"->1]
 
-    (* Use query operators. Refer to the MongoDB docs for info on valid operators. *)
-    FindDocuments[coll, {"a" -> {"$gt" -> 2}}]
+(* Use query operators. Refer to the MongoDB docs for info on valid operators. *)
+FindDocuments[coll, {"a" -> {"$gt" -> 2}}]
 
-    (* Some Wolfram Query operators are transparently executed on the database server: *)
-    coll[Total, "a"]
-    coll[Min, "a"]
-    coll[Max, "a"]
-    coll[Mean, "a"]
+(* Some Wolfram Query operators are transparently executed on the database server: *)
+coll[Total, "a"]
+coll[Min, "a"]
+coll[Max, "a"]
+coll[Mean, "a"]
 
-    coll[;;3]
-    coll[2;;3, {"a"}]
+coll[;;3]
+coll[2;;3, {"a"}]
 
-    (* Any operator will work, but any other than those listed above effectively fetch ALL data and convert it to a Dataset for calculation. *)
+(* Any operator will work, but any other than those listed above effectively fetch ALL data and convert it to a Dataset for calculation. *)
 
-    (* Find distinct values of a field *)
-    FindDistinct[coll, "b"]
-    FindDistinct[coll, "b", {"a" -> {"$gt" -> {2}}}]
+(* Find distinct values of a field *)
+FindDistinct[coll, "b"]
+FindDistinct[coll, "b", {"a" -> {"$gt" -> {2}}}]
 
-    (* Count documents *)
-    CountDocuments[coll]
-    CountDocuments[coll, {"b" -> 2}]
+(* Count documents *)
+CountDocuments[coll]
+CountDocuments[coll, {"b" -> 2}]
 
-    (* Delete documents *)
-    DeleteDocument[coll, {"a" -> 3}]
+(* Delete documents *)
+DeleteDocument[coll, {"a" -> 3}]
 
-    (* Update or "upsert" documents. Note that without $set, the entire document will be replaced with the new document. *)
-    UpdateDocument[coll, {"a" -> 4}, {"$set" -> {"a" -> -4}}]
+(* Update or "upsert" documents. Note that without $set, the entire document will be replaced with the new document. *)
+UpdateDocument[coll, {"a" -> 4}, {"$set" -> {"a" -> -4}}]
 
-    (* Create an ObjectId. When making queries against _id fields, values are automatically converted to ObjectIds. Use this when the key name is something other than _id. *)
-    oid = ObjectId[] (* random ObjectId *)
-    (* oid = ObjectId["hexstring"] from a valid hex string, which this is not *)
+(* Create an ObjectId. When making queries against _id fields, values are automatically converted to ObjectIds. Use this when the key name is something other than _id. *)
+oid = ObjectId[] (* random ObjectId *)
+(* oid = ObjectId["hexstring"] from a valid hex string, which this is not *)
 
-    (* Cleanup stuff *)
-    DropCollection[coll];
-    DropDatabase[db] (* or DropDatabase[conn, "name"] *)
-    CloseConnection[conn];
+(* Cleanup stuff *)
+DropCollection[coll];
+DropDatabase[db] (* or DropDatabase[conn, "name"] *)
+CloseConnection[conn];
+```
 
 ## Developer's guide
 
