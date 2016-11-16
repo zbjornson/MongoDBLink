@@ -1,0 +1,554 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     14069,        544]
+NotebookOptionsPosition[      9438,        379]
+NotebookOutlinePosition[     10055,        403]
+CellTagsIndexPosition[      9977,        398]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["0.2", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["MongoDBLink", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465],
+
+Cell["MongoDBLink`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828],
+
+Cell["MongoDBLink/ref/OpenConnection", "Categorization",
+ CellLabel->"URI"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["OpenConnection", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ Cell[BoxData[
+  RowBox[{"OpenConnection", "[", "]"}]], "InlineFormula"],
+ " \[LineSeparator]Opens a MongoDB connection to localhost:27017.\n",
+ Cell["      ", "ModInfo"],
+ Cell[BoxData[
+  RowBox[{"OpenConnection", "[", "uri", "]"}]], "InlineFormula"],
+ "\[LineSeparator]Opens a connection to the specified URI.\n",
+ Cell["      ", "ModInfo"],
+ Cell[BoxData[
+  RowBox[{"OpenConnection", "[", 
+   RowBox[{"host", ",", " ", "port"}], "]"}]], "InlineFormula"],
+ "\[LineSeparator]Opens a connection to the specified host and port.\n",
+ Cell["      ", "ModInfo"],
+ Cell[BoxData[
+  RowBox[{"OpenConnection", "[", 
+   RowBox[{
+   "host", ",", " ", "port", ",", " ", "username", ",", " ", "password", ",", 
+    " ", "database"}], "]"}]], "InlineFormula"],
+ "\[LineSeparator]Opens a connection with the specified authentication."
+}], "Usage",
+ CellChangeTimes->{{3.6883121558722425`*^9, 3.6883122530406065`*^9}},
+ CellID->982511436],
+
+Cell[TextData[StyleBox["The database server must already be running; this \
+function will not start the server.", "Notes"]], "Notes",
+ CellChangeTimes->{{3.6883112873814297`*^9, 3.688311303769008*^9}},
+ CellID->1067943069]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox["CloseConnection",
+  BaseStyle->"Link",
+  ButtonData->
+   "paclet:MongoDBLink/ref/CloseConnection"]], "InlineFormula"]], "SeeAlso",
+ CellChangeTimes->{{3.6883123565244465`*^9, 3.688312362407114*^9}},
+ CellID->929782353],
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox["DatabaseNames",
+  BaseStyle->"Link",
+  ButtonData->
+   "paclet:MongoDBLink/ref/DatabaseNames"]], "InlineFormula"]], "SeeAlso",
+ CellChangeTimes->{{3.6883123654581957`*^9, 3.6883123690753174`*^9}, {
+  3.6883124080564184`*^9, 3.688312408178745*^9}},
+ CellID->575396411],
+
+Cell[TextData[ButtonBox["DatabaseConnection",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/DatabaseConnection"]], "SeeAlso",
+ CellChangeTimes->{{3.688312431317298*^9, 3.6883124397091093`*^9}},
+ CellID->34218359]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell["Open a connection to localhost on the default port:", "ExampleText",
+ CellChangeTimes->{{3.688312284066188*^9, 3.688312288856423*^9}},
+ CellID->108658898],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<MongoDBLink`\>\"", "]"}]], "Input",
+ CellLabel->"In[10]:=",
+ CellID->149833165],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"connection", "=", 
+  RowBox[{"OpenConnection", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.688312298811387*^9, 3.68831230235581*^9}},
+ CellLabel->"In[11]:=",
+ CellID->218378218],
+
+Cell[BoxData[
+ RowBox[{"DatabaseConnection", "[", 
+  PanelBox[
+   TagBox[GridBox[{
+      {
+       TemplateBox[{StyleBox["\"Host: \"", 
+          GrayLevel[0.5], StripOnInput -> False],"\"localhost:27017\""},
+        "RowDefault"]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Column"],
+   FrameMargins->5], "]"}]], "Output",
+ CellChangeTimes->{3.688312306291896*^9},
+ CellLabel->"Out[11]=",
+ CellID->205203157]
+}, Open  ]],
+
+Cell["Open a connection using a MongoDB URI:", "ExampleText",
+ CellChangeTimes->{{3.688312317971445*^9, 3.6883123227686973`*^9}},
+ CellID->450788688],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"connection", "=", 
+  RowBox[{
+  "OpenConnection", "[", "\"\<mongodb://localhost:27017/dbname\>\"", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.6883123247599907`*^9, 3.6883123379214916`*^9}},
+ CellLabel->"In[12]:=",
+ CellID->504374931],
+
+Cell[BoxData[
+ RowBox[{"DatabaseConnection", "[", 
+  PanelBox[
+   TagBox[GridBox[{
+      {
+       TemplateBox[{StyleBox["\"Host: \"", 
+          GrayLevel[0.5], StripOnInput -> False],
+         "\"mongodb://localhost:27017/dbname\""},
+        "RowDefault"]}
+     },
+     DefaultBaseStyle->"Column",
+     GridBoxAlignment->{"Columns" -> {{Left}}},
+     GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+    "Column"],
+   FrameMargins->5], "]"}]], "Output",
+ CellChangeTimes->{3.688312339259549*^9},
+ CellLabel->"Out[12]=",
+ CellID->63018557]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2061341341],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1757724783],
+
+Cell[BoxData[
+ InterpretationBox[Cell["XXXX", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{700, 940},
+WindowMargins->{{Automatic, 246}, {Automatic, 23}},
+CellContext->"Global`",
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ExtendedExamples"->{
+  Cell[7918, 321, 100, 2, 53, "ExtendedExamplesSection",
+   CellTags->"ExtendedExamples",
+   CellID->1854448968]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ExtendedExamples", 9839, 391}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 325, 14, 22, "History",
+ CellID->1247902091],
+Cell[CellGroupData[{
+Cell[908, 38, 68, 1, 27, "CategorizationSection",
+ CellID->1122911449],
+Cell[979, 41, 79, 2, 70, "Categorization",
+ CellID->686433507],
+Cell[1061, 45, 84, 2, 70, "Categorization",
+ CellID->605800465],
+Cell[1148, 49, 81, 2, 70, "Categorization",
+ CellID->468444828],
+Cell[1232, 53, 75, 1, 70, "Categorization"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1344, 59, 55, 1, 17, "KeywordsSection",
+ CellID->477174294],
+Cell[1402, 62, 45, 1, 70, "Keywords",
+ CellID->1164421360]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1484, 68, 65, 1, 17, "TemplatesSection",
+ CellID->1872225408],
+Cell[1552, 71, 94, 2, 70, "Template",
+ CellID->1562036412],
+Cell[1649, 75, 82, 2, 70, "Template",
+ CellID->158391909],
+Cell[1734, 79, 81, 2, 70, "Template",
+ CellID->1360575930],
+Cell[1818, 83, 82, 2, 70, "Template",
+ CellID->793782254]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1937, 90, 53, 1, 17, "DetailsSection",
+ CellID->307771771],
+Cell[1993, 93, 63, 2, 70, "Details",
+ CellID->670882175],
+Cell[2059, 97, 69, 2, 70, "Details",
+ CellID->350963985],
+Cell[2131, 101, 64, 2, 70, "Details",
+ CellID->8391405],
+Cell[2198, 105, 69, 2, 70, "Details",
+ CellID->3610269],
+Cell[2270, 109, 61, 2, 70, "Details",
+ CellID->401364205],
+Cell[2334, 113, 61, 2, 70, "Details",
+ CellID->350204745],
+Cell[2398, 117, 63, 2, 70, "Details",
+ CellID->732958810],
+Cell[2464, 121, 78, 2, 70, "Details",
+ CellID->222905350],
+Cell[2545, 125, 67, 2, 70, "Details",
+ CellID->240026365]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2649, 132, 57, 1, 62, "ObjectName",
+ CellID->1224892054],
+Cell[2709, 135, 964, 23, 171, "Usage",
+ CellID->982511436],
+Cell[3676, 160, 222, 3, 23, "Notes",
+ CellID->1067943069]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3935, 168, 57, 1, 43, "TutorialsSection",
+ CellID->250839057],
+Cell[3995, 171, 45, 1, 16, "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4077, 177, 83, 1, 30, "RelatedDemonstrationsSection",
+ CellID->1268215905],
+Cell[4163, 180, 58, 1, 16, "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4258, 186, 65, 1, 30, "RelatedLinksSection",
+ CellID->1584193535],
+Cell[4326, 189, 49, 1, 16, "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4412, 195, 55, 1, 30, "SeeAlsoSection",
+ CellID->1255426704],
+Cell[4470, 198, 258, 6, 18, "SeeAlso",
+ CellID->929782353],
+Cell[4731, 206, 307, 7, 18, "SeeAlso",
+ CellID->575396411],
+Cell[5041, 215, 223, 4, 16, "SeeAlso",
+ CellID->34218359]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5301, 224, 57, 1, 30, "MoreAboutSection",
+ CellID->38303248],
+Cell[5361, 227, 46, 1, 16, "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5444, 233, 356, 11, 67, "PrimaryExamplesSection",
+ CellID->880084151],
+Cell[5803, 246, 160, 2, 20, "ExampleText",
+ CellID->108658898],
+Cell[5966, 250, 121, 3, 25, "Input",
+ CellID->149833165],
+Cell[CellGroupData[{
+Cell[6112, 257, 203, 5, 25, "Input",
+ CellID->218378218],
+Cell[6318, 264, 537, 16, 46, "Output",
+ CellID->205203157]
+}, Open  ]],
+Cell[6870, 283, 149, 2, 20, "ExampleText",
+ CellID->450788688],
+Cell[CellGroupData[{
+Cell[7044, 289, 259, 7, 25, "Input",
+ CellID->504374931],
+Cell[7306, 298, 563, 17, 46, "Output",
+ CellID->63018557]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7918, 321, 100, 2, 53, "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+Cell[8021, 325, 125, 3, 31, "ExampleSection",
+ CellID->1293636265],
+Cell[8149, 330, 148, 3, 19, "ExampleSection",
+ CellID->1020263627],
+Cell[CellGroupData[{
+Cell[8322, 337, 127, 3, 19, "ExampleSection",
+ CellID->2061341341],
+Cell[8452, 342, 130, 3, 70, "ExampleSubsection",
+ CellID->1757724783],
+Cell[8585, 347, 130, 3, 70, "ExampleSubsection",
+ CellID->1295379749]
+}, Closed]],
+Cell[8730, 353, 131, 3, 19, "ExampleSection",
+ CellID->258228157],
+Cell[8864, 358, 142, 3, 19, "ExampleSection",
+ CellID->2123667759],
+Cell[9009, 363, 135, 3, 19, "ExampleSection",
+ CellID->1305812373],
+Cell[9147, 368, 140, 3, 19, "ExampleSection",
+ CellID->1653164318],
+Cell[9290, 373, 132, 3, 19, "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

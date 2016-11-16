@@ -1,0 +1,390 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9725,        380]
+NotebookOptionsPosition[      6114,        256]
+NotebookOutlinePosition[      6529,        272]
+CellTagsIndexPosition[      6486,        269]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["0.2", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Guide", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["MongoDBLink", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465],
+
+Cell["MongoDBLink`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828],
+
+Cell["MongoDBLink/guide/MongoDBLink Package", "Categorization",
+ CellLabel->"URI"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->1427428552],
+
+Cell["XXXX", "Keywords",
+ CellID->1251852827]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->795394057],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->802101],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->509823116],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->199884516],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->463951815],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->8237523],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->813936640],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["MongoDBLink Package", "GuideTitle",
+ CellID->942062912],
+
+Cell[TextData[{
+ "Source code and issues: ",
+ ButtonBox["http://www.github.com/zbjornson/MongoDBLink",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.github.com/zbjornson/MongoDBLink"], None}]
+}], "GuideAbstract",
+ CellChangeTimes->{{3.6883128284020033`*^9, 3.688312872262142*^9}},
+ CellID->2001916300],
+
+Cell[TextData[{
+ "Documentation: ",
+ ButtonBox["http://zbjornson.github.io/MongoDBLink",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.github.com/zbjornson/MongoDBLink"], None}]
+}], "GuideAbstract",
+ CellChangeTimes->{{3.688312874963323*^9, 3.688312894118326*^9}},
+ CellID->19074271]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "GuideFunctionsSection",
+ CellID->1866139230],
+
+Cell[CellGroupData[{
+
+Cell["Databases", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.688312906851136*^9, 3.6883129077339835`*^9}},
+ CellID->36597311],
+
+Cell[TextData[{
+ Cell[BoxData["DatabaseConnection"], "InlineGuideFunction"],
+ " \[LongDash] object representing a MongoDB connection"
+}], "GuideText",
+ CellChangeTimes->{{3.6883129104807854`*^9, 3.6883129279467506`*^9}},
+ CellID->203374175],
+
+Cell["OpenConnection . CloseConnection . ", "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.6883129498344517`*^9, 3.688312954436185*^9}},
+ CellID->307967368],
+
+Cell[TextData[{
+ Cell[BoxData["Database"], "InlineGuideFunction"],
+ " \[LongDash] object representing a MongoDB database"
+}], "GuideText",
+ CellChangeTimes->{{3.6883129603448963`*^9, 3.6883129678588724`*^9}},
+ CellID->1463276848],
+
+Cell["DatabaseNames . GetDatabase . DropDatabase .", \
+"InlineGuideFunctionListing",
+ CellChangeTimes->{{3.6883129820129995`*^9, 3.688312988513281*^9}},
+ CellID->45539784]
+}, Open  ]],
+
+Cell["\t", "GuideDelimiter",
+ CellID->311258892],
+
+Cell[CellGroupData[{
+
+Cell["Collections", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.6883129954251776`*^9, 3.688312996457925*^9}},
+ CellID->219736738],
+
+Cell[TextData[{
+ Cell[BoxData["Collection"], "InlineGuideFunction"],
+ " \[LongDash] object representing a MongoDB collection"
+}], "GuideText",
+ CellChangeTimes->{{3.6883130661662793`*^9, 3.688313072605934*^9}},
+ CellID->48699842],
+
+Cell["CollectionNames . GetCollection . DropCollection .", \
+"InlineGuideFunctionListing",
+ CellChangeTimes->{{3.688313052211643*^9, 3.6883130597351427`*^9}},
+ CellID->58033752]
+}, Open  ]],
+
+Cell["\t", "GuideDelimiter",
+ CellID->356227325],
+
+Cell[CellGroupData[{
+
+Cell["Document Operations", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.6883130022412996`*^9, 3.688313007493763*^9}},
+ CellID->198975316],
+
+Cell["\<\
+InsertDocument . FindDocuments . UpdateDocument . DeleteDocument\
+\>", "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.6883130888796973`*^9, 3.688313099570619*^9}},
+ CellID->804787157],
+
+Cell["CountDocuments . FindDistinct", "InlineGuideFunctionListing",
+ CellChangeTimes->{{3.6883131087279634`*^9, 3.68831311922888*^9}},
+ CellID->86513563]
+}, Open  ]],
+
+Cell["\t", "GuideDelimiter",
+ CellID->29424178],
+
+Cell[CellGroupData[{
+
+Cell["General", "GuideFunctionsSubsection",
+ CellChangeTimes->{{3.6883130256129313`*^9, 3.688313027306935*^9}},
+ CellID->42788015],
+
+Cell[TextData[{
+ Cell[BoxData["ObjectId"], "InlineGuideFunction"],
+ " \[LongDash] object representing a MongoDB ID"
+}], "GuideText",
+ CellChangeTimes->{{3.688313033788165*^9, 3.688313041856615*^9}},
+ CellID->527033]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "GuideTutorialsSection",
+ CellID->415694126],
+
+Cell["XXXX", "GuideTutorial",
+ CellID->806871991],
+
+Cell["XXXX", "GuideTutorial",
+ CellID->1885805579]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "GuideMoreAboutSection",
+ CellID->23220180],
+
+Cell["XXXX", "GuideMoreAbout",
+ CellID->1567025153],
+
+Cell["XXXX", "GuideMoreAbout",
+ CellID->252299663]
+}, Open  ]],
+
+Cell["Related Links", "GuideRelatedLinksSection",
+ CellID->415694148]
+},
+WindowSize->{700, 912},
+WindowMargins->{{Automatic, 213}, {Automatic, 5}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 325, 14, 22, "History",
+ CellID->1247902091],
+Cell[CellGroupData[{
+Cell[908, 38, 68, 1, 27, "CategorizationSection",
+ CellID->1122911449],
+Cell[979, 41, 78, 2, 70, "Categorization",
+ CellID->686433507],
+Cell[1060, 45, 84, 2, 70, "Categorization",
+ CellID->605800465],
+Cell[1147, 49, 81, 2, 70, "Categorization",
+ CellID->468444828],
+Cell[1231, 53, 82, 1, 70, "Categorization"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1350, 59, 56, 1, 17, "KeywordsSection",
+ CellID->1427428552],
+Cell[1409, 62, 45, 1, 70, "Keywords",
+ CellID->1251852827]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1491, 68, 53, 1, 17, "DetailsSection",
+ CellID->307771771],
+Cell[1547, 71, 63, 2, 70, "Details",
+ CellID->795394057],
+Cell[1613, 75, 69, 2, 70, "Details",
+ CellID->350963985],
+Cell[1685, 79, 63, 2, 70, "Details",
+ CellID->802101],
+Cell[1751, 83, 71, 2, 70, "Details",
+ CellID->509823116],
+Cell[1825, 87, 61, 2, 70, "Details",
+ CellID->199884516],
+Cell[1889, 91, 61, 2, 70, "Details",
+ CellID->463951815],
+Cell[1953, 95, 61, 2, 70, "Details",
+ CellID->8237523],
+Cell[2017, 99, 78, 2, 70, "Details",
+ CellID->813936640],
+Cell[2098, 103, 67, 2, 70, "Details",
+ CellID->240026365]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2202, 110, 61, 1, 76, "GuideTitle",
+ CellID->942062912],
+Cell[2266, 113, 317, 8, 25, "GuideAbstract",
+ CellID->2001916300],
+Cell[2586, 123, 299, 8, 25, "GuideAbstract",
+ CellID->19074271]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2922, 136, 54, 1, 68, "GuideFunctionsSection",
+ CellID->1866139230],
+Cell[CellGroupData[{
+Cell[3001, 141, 132, 2, 33, "GuideFunctionsSubsection",
+ CellID->36597311],
+Cell[3136, 145, 240, 5, 21, "GuideText",
+ CellID->203374175],
+Cell[3379, 152, 161, 2, 23, "InlineGuideFunctionListing",
+ CellID->307967368],
+Cell[3543, 156, 229, 5, 21, "GuideText",
+ CellID->1463276848],
+Cell[3775, 163, 171, 3, 23, "InlineGuideFunctionListing",
+ CellID->45539784]
+}, Open  ]],
+Cell[3961, 169, 48, 1, 26, "GuideDelimiter",
+ CellID->311258892],
+Cell[CellGroupData[{
+Cell[4034, 174, 135, 2, 33, "GuideFunctionsSubsection",
+ CellID->219736738],
+Cell[4172, 178, 229, 5, 21, "GuideText",
+ CellID->48699842],
+Cell[4404, 185, 177, 3, 23, "InlineGuideFunctionListing",
+ CellID->58033752]
+}, Open  ]],
+Cell[4596, 191, 48, 1, 26, "GuideDelimiter",
+ CellID->356227325],
+Cell[CellGroupData[{
+Cell[4669, 196, 143, 2, 33, "GuideFunctionsSubsection",
+ CellID->198975316],
+Cell[4815, 200, 198, 4, 23, "InlineGuideFunctionListing",
+ CellID->804787157],
+Cell[5016, 206, 153, 2, 23, "InlineGuideFunctionListing",
+ CellID->86513563]
+}, Open  ]],
+Cell[5184, 211, 47, 1, 26, "GuideDelimiter",
+ CellID->29424178],
+Cell[CellGroupData[{
+Cell[5256, 216, 130, 2, 33, "GuideFunctionsSubsection",
+ CellID->42788015],
+Cell[5389, 220, 215, 5, 21, "GuideText",
+ CellID->527033]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5653, 231, 62, 1, 70, "GuideTutorialsSection",
+ CellID->415694126],
+Cell[5718, 234, 49, 1, 20, "GuideTutorial",
+ CellID->806871991],
+Cell[5770, 237, 50, 1, 20, "GuideTutorial",
+ CellID->1885805579]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5857, 243, 62, 1, 70, "GuideMoreAboutSection",
+ CellID->23220180],
+Cell[5922, 246, 51, 1, 20, "GuideMoreAbout",
+ CellID->1567025153],
+Cell[5976, 249, 50, 1, 20, "GuideMoreAbout",
+ CellID->252299663]
+}, Open  ]],
+Cell[6041, 253, 69, 1, 70, "GuideRelatedLinksSection",
+ CellID->415694148]
+}
+]
+*)
+
+(* End of internal cache information *)
+
