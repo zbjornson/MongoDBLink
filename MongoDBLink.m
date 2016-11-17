@@ -134,6 +134,7 @@ OpenConnection[] := OpenConnection["localhost", 27017]
 
 OpenConnection[uri_String] := Block[{mcuri, hosts},
   InstallJava[];
+  LoadClass["com.mongodb.WriteConcern"];
   mcuri = JavaNew["com.mongodb.MongoClientURI", uri];
   hosts =
   DatabaseConnection[uri, JavaNew["com.mongodb.MongoClient", mcuri]]
@@ -149,6 +150,7 @@ OpenConnection[host_String, port_Integer, "", _, _]:= OpenConnection[host, port]
 
 OpenConnection[host_String, port_Integer, user_String, password_String, database_String] := Module[{al, credential},
   InstallJava[];
+  LoadClass["com.mongodb.WriteConcern"];
   LoadJavaClass["com.mongodb.MongoCredential"];
   credential = MongoCredential`createCredential[user, database, MakeJavaObject[password]@toCharArray[]];
   al = JavaNew["java.util.ArrayList"];
