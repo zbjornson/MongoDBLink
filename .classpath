@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="javaSource"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="var" path="JLINK_JAR"/>
+	<classpathentry kind="lib" path="MongoDBLink/Java/mongodb-driver-3.4.0.jar"/>
+	<classpathentry kind="lib" path="MongoDBLink/Java/bson-3.4.0.jar"/>
+	<classpathentry kind="lib" path="MongoDBLink/Java/mongodb-driver-core-3.4.0.jar"/>
+	<classpathentry kind="output" path="javaOutput"/>
+</classpath>
