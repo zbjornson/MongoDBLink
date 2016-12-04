@@ -1,0 +1,300 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7696,        290]
+NotebookOptionsPosition[      5101,        205]
+NotebookOutlinePosition[      5517,        221]
+CellTagsIndexPosition[      5474,        218]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Overview", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["MongoDBLink Package", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465],
+
+Cell["MongoDBLink`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828],
+
+Cell["MongoDBLink/tutorial/MongoDBLinkOverview", "Categorization",
+ CellLabel->"URI"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Synonyms", "SynonymsSection",
+ CellID->1427418553],
+
+Cell["XXXX", "Synonyms",
+ CellID->1251652828]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->1427428552],
+
+Cell["XXXX", "Keywords",
+ CellID->1251852827]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->218895918],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->795871300],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->199739161],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->40625308],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->357121918],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->35949532],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->929432370],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["MongoDBLink Overview", "TOCDocumentTitle"],
+
+Cell[TextData[ButtonBox["Blah",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/tutorial/Blah#509267359"]], "TOCChapter"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[ButtonBox["ReferencePages/Symbols",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/CloseConnection"]], "TOCChapter"],
+
+Cell[TextData[ButtonBox["CloseConnection",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/CloseConnection"]], "TOCSection"],
+
+Cell[TextData[ButtonBox["Collection",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/Collection"]], "TOCSection"],
+
+Cell[TextData[ButtonBox["CollectionNames",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/CollectionNames"]], "TOCSection"],
+
+Cell[TextData[ButtonBox["CountDocuments",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/CountDocuments"]], "TOCSection"],
+
+Cell[TextData[ButtonBox["Database",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/Database"]], "TOCSection"],
+
+Cell[TextData[ButtonBox["DatabaseConnection",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/DatabaseConnection"]], "TOCSection"],
+
+Cell[TextData[ButtonBox["DatabaseNames",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/DatabaseNames"]], "TOCSection"],
+
+Cell[TextData[ButtonBox["DeleteDocument",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/DeleteDocument"]], "TOCSection"],
+
+Cell[TextData[ButtonBox["DropCollection",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/DropCollection"]], "TOCSection"],
+
+Cell[TextData[ButtonBox["DropDatabase",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/DropDatabase"]], "TOCSection"],
+
+Cell[TextData[ButtonBox["FindDistinct",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/FindDistinct"]], "TOCSection"],
+
+Cell[TextData[ButtonBox["FindDocuments",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/FindDocuments"]], "TOCSection"],
+
+Cell[TextData[ButtonBox["GetCollection",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/GetCollection"]], "TOCSection"],
+
+Cell[TextData[ButtonBox["GetDatabase",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/GetDatabase"]], "TOCSection"],
+
+Cell[TextData[ButtonBox["InsertDocument",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/InsertDocument"]], "TOCSection"],
+
+Cell[TextData[ButtonBox["ObjectId",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/ObjectId"]], "TOCSection"],
+
+Cell[TextData[ButtonBox["OpenConnection",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/OpenConnection"]], "TOCSection"],
+
+Cell[TextData[ButtonBox["UpdateDocument",
+ BaseStyle->"Link",
+ ButtonData->"paclet:MongoDBLink/ref/UpdateDocument"]], "TOCSection"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{4, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "TutorialPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 324, 14, 70, "History",
+ CellID->1247902091],
+Cell[CellGroupData[{
+Cell[907, 38, 68, 1, 70, "CategorizationSection",
+ CellID->1122911449],
+Cell[978, 41, 81, 2, 70, "Categorization",
+ CellID->686433507],
+Cell[1062, 45, 92, 2, 70, "Categorization",
+ CellID->605800465],
+Cell[1157, 49, 81, 2, 70, "Categorization",
+ CellID->468444828],
+Cell[1241, 53, 85, 1, 70, "Categorization"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1363, 59, 56, 1, 70, "SynonymsSection",
+ CellID->1427418553],
+Cell[1422, 62, 45, 1, 70, "Synonyms",
+ CellID->1251652828]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1504, 68, 56, 1, 70, "KeywordsSection",
+ CellID->1427428552],
+Cell[1563, 71, 45, 1, 70, "Keywords",
+ CellID->1251852827]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1645, 77, 53, 1, 70, "DetailsSection",
+ CellID->307771771],
+Cell[1701, 80, 63, 2, 70, "Details",
+ CellID->218895918],
+Cell[1767, 84, 69, 2, 70, "Details",
+ CellID->350963985],
+Cell[1839, 88, 66, 2, 70, "Details",
+ CellID->795871300],
+Cell[1908, 92, 71, 2, 70, "Details",
+ CellID->199739161],
+Cell[1982, 96, 60, 2, 70, "Details",
+ CellID->40625308],
+Cell[2045, 100, 61, 2, 70, "Details",
+ CellID->357121918],
+Cell[2109, 104, 62, 2, 70, "Details",
+ CellID->35949532],
+Cell[2174, 108, 78, 2, 70, "Details",
+ CellID->929432370],
+Cell[2255, 112, 67, 2, 70, "Details",
+ CellID->240026365]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2359, 119, 48, 0, 70, "TOCDocumentTitle"],
+Cell[2410, 121, 126, 2, 70, "TOCChapter"],
+Cell[CellGroupData[{
+Cell[2561, 127, 140, 2, 70, "TOCChapter"],
+Cell[2704, 131, 133, 2, 70, "TOCSection"],
+Cell[2840, 135, 123, 2, 70, "TOCSection"],
+Cell[2966, 139, 133, 2, 70, "TOCSection"],
+Cell[3102, 143, 131, 2, 70, "TOCSection"],
+Cell[3236, 147, 119, 2, 70, "TOCSection"],
+Cell[3358, 151, 139, 2, 70, "TOCSection"],
+Cell[3500, 155, 129, 2, 70, "TOCSection"],
+Cell[3632, 159, 131, 2, 70, "TOCSection"],
+Cell[3766, 163, 131, 2, 70, "TOCSection"],
+Cell[3900, 167, 127, 2, 70, "TOCSection"],
+Cell[4030, 171, 127, 2, 70, "TOCSection"],
+Cell[4160, 175, 129, 2, 70, "TOCSection"],
+Cell[4292, 179, 129, 2, 70, "TOCSection"],
+Cell[4424, 183, 125, 2, 70, "TOCSection"],
+Cell[4552, 187, 131, 2, 70, "TOCSection"],
+Cell[4686, 191, 119, 2, 70, "TOCSection"],
+Cell[4808, 195, 131, 2, 70, "TOCSection"],
+Cell[4942, 199, 131, 2, 70, "TOCSection"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
