@@ -1,3 +1,5 @@
+⚠️ **Note: *Mathematica* v11.3 and later has [a built-in MongoLink package](https://reference.wolfram.com/language/MongoLink/guide/MongoLinkOperations.html).** This repository will likely no longer be updated, although it should continue to work.
+
 # MongoDBLink
 MongoDB driver for Mathematica
 
